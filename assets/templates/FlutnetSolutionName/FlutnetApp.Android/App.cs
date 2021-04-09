@@ -46,7 +46,7 @@ namespace FlutnetApp
         {
             try
             {
-                FlutnetRuntime.Init("<YOUR_APP_KEY>");
+                FlutnetRuntime.Init();
                 FlutnetRuntime.RegisterPlatformService(new Service1(), "my_service");
                 Initialized = true;
             }
