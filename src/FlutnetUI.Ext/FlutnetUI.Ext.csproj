@@ -14,9 +14,11 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
+  <!--
   <PropertyGroup>
     <AvaloniaUseExternalMSBuild>true</AvaloniaUseExternalMSBuild>
   </PropertyGroup>
+  -->
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.9.10" />

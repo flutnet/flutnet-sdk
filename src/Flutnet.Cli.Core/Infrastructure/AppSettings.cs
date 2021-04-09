@@ -160,13 +160,7 @@ namespace Flutnet.Cli.Core.Infrastructure
             if (File.Exists(_path))
             {
                 byte[] bytes = File.ReadAllBytes(_path);
-#if DEBUG
-                byte[] plainBytes = bytes;
-#else
-                byte[] plainBytes = IntelliLock.Licensing.DataSignHelper.DecryptData(bytes);
-#endif
-                string json = System.Text.Encoding.UTF8.GetString(plainBytes);
-
+                string json = System.Text.Encoding.UTF8.GetString(bytes);
                 data = JsonConvert.DeserializeObject<AppUsageData>(json);
             }
             else
@@ -183,12 +177,7 @@ namespace Flutnet.Cli.Core.Infrastructure
         public void Save()
         {
             string json = JsonConvert.SerializeObject(this, Formatting.Indented);
-            byte[] plainBytes = System.Text.Encoding.UTF8.GetBytes(json);
-#if DEBUG
-            byte[] bytes = plainBytes;
-#else
-            byte[] bytes = IntelliLock.Licensing.DataSignHelper.EncryptData(plainBytes);
-#endif
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
             File.WriteAllBytes(_path, bytes);
         }
     }
