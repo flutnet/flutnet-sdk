@@ -1,0 +1,93 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon>Assets\flutnet-logo.ico</ApplicationIcon>
+    <Product>Flutnet</Product>
+    <Company>Novagem Solutions</Company>
+    <Authors>Novagem Solutions</Authors>
+    <Copyright>© 2020-2021 Novagem Solutions S.r.l.</Copyright>
+    <AssemblyName>FlutnetUI</AssemblyName>
+    <RootNamespace>FlutnetUI</RootNamespace>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Update="**\*.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <AvaloniaResource Include="**\*.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Assets\*" />
+    <AvaloniaResource Include="Assets\Fonts\*" />
+    <AvaloniaResource Include="Themes\*.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Remove="logs\**" />
+    <Compile Remove="logs\**" />
+    <EmbeddedResource Remove="logs\**" />
+    <None Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Fonts\Roboto-Black.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-BlackItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-BoldItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-Italic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-Light.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-LightItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-MediumItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-Regular.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-Thin.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Roboto-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Flutnet.Cli\Properties\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="FlutnetUI.appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.9.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.9.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.10" />
+    <PackageReference Include="MedallionShell" Version="1.6.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.14" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Reactive" Version="4.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.14" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HtmlRenderer.Core\HtmlRenderer.Core.csproj" />
+    <ProjectReference Include="..\FlutnetUI.Ext\FlutnetUI.Ext.csproj" />
+    <ProjectReference Include="..\Flutnet.Cli.DTO\Flutnet.Cli.DTO.csproj" />
+  </ItemGroup>
+</Project>

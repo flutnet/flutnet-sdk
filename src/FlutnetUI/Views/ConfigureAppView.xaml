@@ -1,0 +1,89 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="512" d:DesignHeight="400"
+             x:Class="FlutnetUI.Views.ConfigureAppView">
+
+  <UserControl.Styles>
+    <Style>
+      <Style.Resources>
+        <GeometryDrawing x:Key="Unicons.MapMarkerInfo" Brush="Gray" Geometry="M12,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,12,10Zm8.46-.32A8.5,8.5,0,0,0,7.3,3.36,8.56,8.56,0,0,0,3.54,9.63,8.46,8.46,0,0,0,6,16.46l5.3,5.31a1,1,0,0,0,1.42,0L18,16.46A8.46,8.46,0,0,0,20.46,9.63ZM16.6,15.05,12,19.65l-4.6-4.6A6.49,6.49,0,0,1,5.53,9.83,6.57,6.57,0,0,1,8.42,5a6.47,6.47,0,0,1,7.16,0,6.57,6.57,0,0,1,2.89,4.81A6.49,6.49,0,0,1,16.6,15.05ZM12.92,7.57a.56.56,0,0,0-.09-.17l-.12-.15A1,1,0,0,0,11.8,7L11.62,7l-.18.09-.15.13-.12.15a.56.56,0,0,0-.09.17.6.6,0,0,0-.06.19A1.23,1.23,0,0,0,11,8a.88.88,0,0,0,.08.39,1.11,1.11,0,0,0,.21.32,1.06,1.06,0,0,0,.33.22,1.07,1.07,0,0,0,.76,0,1.19,1.19,0,0,0,.33-.22,1.11,1.11,0,0,0,.21-.32A1,1,0,0,0,13,8a1.23,1.23,0,0,0,0-.19A.6.6,0,0,0,12.92,7.57Z"   />
+        <GeometryDrawing x:Key="Entypo+.Warning" Brush="#B71C1C" Geometry="M19.511,17.98L10.604,1.348C10.48,1.133,10.25,1,10,1C9.749,1,9.519,1.133,9.396,1.348L0.49,17.98  c-0.121,0.211-0.119,0.471,0.005,0.68C0.62,18.871,0.847,19,1.093,19h17.814c0.245,0,0.474-0.129,0.598-0.34  C19.629,18.451,19.631,18.191,19.511,17.98z M11,17H9v-2h2V17z M11,13.5H9V7h2V13.5z"   />
+      </Style.Resources>
+    </Style>
+  </UserControl.Styles>
+  
+  <DockPanel>
+
+   <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="0" Height="30">
+      <Panel Background="{DynamicResource SecondaryVariant}" Height="10" Width="10"/>
+      <Panel Background="{DynamicResource Gray_Flutnet}" Height="10" Width="10"/>
+      <Panel Background="{DynamicResource Gray_Flutnet}" Height="10" Width="10"/>
+   </StackPanel>
+  
+    <StackPanel DockPanel.Dock="Left" Orientation="Vertical" HorizontalAlignment="Left" Margin="6" Width="500">
+
+    <TextBlock  Classes="Material h2">App name</TextBlock>
+    <TextBox Width="500" Classes="Material SecondaryVariant" HorizontalAlignment="Left" Text="{Binding AppName}"></TextBox>
+    <Panel Height="20"/>
+
+    <TextBlock Classes="Material h2">Organization identifier</TextBlock>
+    <TextBox Classes="Material SecondaryVariant" Width="500" HorizontalAlignment="Left" Text="{Binding OrganizationId}"></TextBox>
+    <Panel Height="20"/>
+
+    
+
+
+    <Border BorderBrush="#4D000000" BorderThickness="0.2,0.2,0.2,0.2" CornerRadius="0">
+      <Grid ColumnDefinitions="Auto,*" RowDefinitions="40,40">
+        <!-- Line 1 -->
+        <DrawingPresenter Grid.Row="0" Grid.Column="0" Width="20" Margin="10" Drawing="{DynamicResource Ionicons.LogoAndroid_Green}" />
+        <TextBlock Grid.Row="0" Grid.Column="1" IsEnabled="false" Margin="10,0,0,0" VerticalAlignment="Center" Text="{Binding AndroidAppId}">com.companyname.appname</TextBlock>
+        <!-- Line 2 -->
+        <DrawingPresenter Grid.Row="1" Grid.Column="0" Width="20" Margin="10" HorizontalAlignment="Left" Drawing="{DynamicResource BoxIcons.LogosApple_Gray}" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center" Text="{Binding IosAppId}">com.companyname.AppName</TextBlock>
+      </Grid>
+    </Border>
+    
+    <Border BorderBrush="#B71C1C" Height="27" BorderThickness="0" CornerRadius="0" Padding="3" Margin="0,10,0,0" IsVisible="{Binding TrialMode}">
+      <StackPanel Orientation="Horizontal" Spacing="3">
+        <DrawingPresenter Stretch="Uniform" Drawing="{StaticResource Entypo+.Warning}" />
+        <TextBlock Margin="0,0,0,0" Foreground="#B71C1C" VerticalAlignment="Center">Remark: in the Trial Version the generated App Bundle is fixed to</TextBlock>
+        <TextBlock Margin="0,0,0,0" Foreground="#B71C1C" FontWeight="Bold" VerticalAlignment="Center">"com.example.app"</TextBlock>
+      </StackPanel>
+    </Border>
+
+    <Panel Height="10"/>
+    <TextBlock Classes="Material h2">Target platforms</TextBlock>
+    <Panel Height="10"/>
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Spacing="6" Margin="6,0,0,0">
+      <StackPanel Orientation="Horizontal" Spacing="6">
+        <CheckBox IsEnabled="{Binding CanTargetAndroid}" MinWidth="80" IsChecked="{Binding TargetAndroid}" IsThreeState="False">
+          <TextBlock Classes="Material" >Android</TextBlock>
+        </CheckBox>
+        <DrawingPresenter Width="18" Height="18" Stretch="Uniform">
+          <DrawingPresenter.Drawing>
+            <GeometryDrawing Brush="{Binding AndroidPlatformMessageColor}" Geometry="M 38,19C 48.4934,19 57,27.5066 57,38C 57,48.4934 48.4934,57 38,57C 27.5066,57 19,48.4934 19,38C 19,27.5066 27.5066,19 38,19 Z M 34.0417,25.7292L 36.0208,41.9584L 39.9792,41.9583L 41.9583,25.7292L 34.0417,25.7292 Z M 38,44.3333C 36.2511,44.3333 34.8333,45.7511 34.8333,47.5C 34.8333,49.2489 36.2511,50.6667 38,50.6667C 39.7489,50.6667 41.1667,49.2489 41.1667,47.5C 41.1667,45.7511 39.7489,44.3333 38,44.3333 Z "   />
+          </DrawingPresenter.Drawing>
+        </DrawingPresenter>
+        <TextBlock Classes="Material" FontStyle="Italic" Text="{Binding AndroidPlatformMessage}" Foreground="{Binding AndroidPlatformMessageColor}" TextWrapping="Wrap" Margin="0,1,0,0">Android ADB not found in your PATH</TextBlock>
+      </StackPanel>     
+      <StackPanel Orientation="Horizontal" Spacing="6">
+        <CheckBox IsEnabled="{Binding CanTargetIos}" MinWidth="80" IsChecked="{Binding TargetIos}" IsThreeState="False">
+          <TextBlock Classes="Material">iOS</TextBlock>
+        </CheckBox>
+        <DrawingPresenter Width="18" Height="18" Stretch="Uniform">
+          <DrawingPresenter.Drawing>
+            <GeometryDrawing Brush="{Binding IosPlatformMessageColor}" Geometry="M 38,19C 48.4934,19 57,27.5066 57,38C 57,48.4934 48.4934,57 38,57C 27.5066,57 19,48.4934 19,38C 19,27.5066 27.5066,19 38,19 Z M 34.0417,25.7292L 36.0208,41.9584L 39.9792,41.9583L 41.9583,25.7292L 34.0417,25.7292 Z M 38,44.3333C 36.2511,44.3333 34.8333,45.7511 34.8333,47.5C 34.8333,49.2489 36.2511,50.6667 38,50.6667C 39.7489,50.6667 41.1667,49.2489 41.1667,47.5C 41.1667,45.7511 39.7489,44.3333 38,44.3333 Z "   />
+          </DrawingPresenter.Drawing>
+        </DrawingPresenter>
+        <TextBlock Classes="Material" FontStyle="Italic" Text="{Binding IosPlatformMessage}" Foreground="{Binding IosPlatformMessageColor}" TextWrapping="Wrap" Margin="0,1,0,0">Flutter iOS cannot build on Windows machine</TextBlock>
+      </StackPanel>     
+    </StackPanel>
+
+  </StackPanel>
+
+        
+  </DockPanel>
+</UserControl>

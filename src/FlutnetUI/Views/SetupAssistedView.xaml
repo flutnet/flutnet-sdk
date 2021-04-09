@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="FlutnetUI.Views.SetupAssistedView"
+             Padding="10">
+  <UserControl.Styles>
+    <Style Selector="TextBlock.Material">
+      <!-- <Setter Property="FontFamily" Value="/Assets/Fonts/Roboto-*.ttf#Roboto" /> -->
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style Selector="TextBlock.forinput">
+      <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+  </UserControl.Styles>
+  <StackPanel Orientation="Vertical">
+    <TextBlock Classes="Material" FontSize="16">Please review the following informations and fill any empty field before proceeding.</TextBlock>
+    
+    <TextBlock Classes="Material forinput" Margin="0 20 0 0" IsVisible="{Binding ShellInfoVisible}">Current login shell</TextBlock>
+    <TextBox Classes="Material SecondaryVariant" Width="500" HorizontalAlignment="Left" Text="{Binding CurrentShell}" IsVisible="{Binding ShellInfoVisible}" IsReadOnly="True"></TextBox>
+
+    <TextBlock Classes="Material forinput" Margin="0 20 0 0" IsVisible="{Binding ShellInfoVisible}">Shell rc file</TextBlock>
+    <TextBox Classes="Material SecondaryVariant" Width="500" HorizontalAlignment="Left" Text="{Binding CurrentShellConfigurationFile}" IsVisible="{Binding ShellInfoVisible}" IsReadOnly="True"></TextBox>
+
+    <TextBlock Classes="Material forinput" Margin="0 20 0 0">Flutter SDK Location</TextBlock>
+    <StackPanel Orientation="Horizontal" Margin="0" Spacing="6">
+      <TextBox Classes="Material SecondaryVariant" Width="458" Text="{Binding FlutterLocation}" IsReadOnly="True"></TextBox>
+      <Button Classes="Material" Command="{Binding BrowseFlutterLocation}" ToolTip.Tip="Browse">...</Button>
+    </StackPanel>
+
+    <TextBlock Classes="Material forinput" Margin="0 20 0 0" IsEnabled="{Binding !SkipAndroidConfiguration}">Android SDK Location</TextBlock>
+    <StackPanel Orientation="Horizontal" Margin="0" Spacing="6">
+      <TextBox Classes="Material SecondaryVariant" Width="458" Text="{Binding AndroidLocation}" IsReadOnly="True"></TextBox>
+      <Button Classes="Material" Command="{Binding BrowseAndroidLocation}" ToolTip.Tip="Browse">...</Button>
+    </StackPanel>
+
+    <TextBlock Classes="Material forinput" Margin="0 20 0 0" IsEnabled="{Binding !SkipAndroidConfiguration}">Java SDK (JDK) Location</TextBlock>
+    <StackPanel Orientation="Horizontal" Margin="0" Spacing="6">
+      <TextBox Classes="Material SecondaryVariant" Width="458" Text="{Binding JavaLocation}" IsReadOnly="True"></TextBox>
+      <Button Classes="Material" Command="{Binding BrowseJavaLocation}" ToolTip.Tip="Browse">...</Button>
+    </StackPanel>
+
+    <CheckBox IsChecked="{Binding SkipAndroidConfiguration}" Margin="0 20 0 0" IsThreeState="False">
+      <TextBlock Classes="Material" Margin="10 0 0 0" Text="Skip Android Configuration" />
+    </CheckBox>
+  </StackPanel>
+</UserControl>

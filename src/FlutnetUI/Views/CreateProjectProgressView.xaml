@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:FlutnetUI.ViewModels;assembly=FlutnetUI"
+             xmlns:models="clr-namespace:FlutnetUI.Models;assembly=FlutnetUI"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="400"
+             x:Class="FlutnetUI.Views.CreateProjectProgressView">
+
+  <DockPanel>
+
+    <!-- Bottom indicator panel -->
+    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="0" Height="30">
+      <Panel Background="{DynamicResource Gray_Flutnet}" Height="10" Width="10"/>   
+      <Panel Background="{DynamicResource Gray_Flutnet}" Height="10" Width="10"/>
+      <Panel Background="{DynamicResource SecondaryVariant}" Height="10" Width="10"/>
+    </StackPanel>
+
+    <DockPanel>
+      <TextBlock DockPanel.Dock="Top" Margin="10 10 10 0" Classes="Material h2">The project is being created, please wait. This operation may take a while...</TextBlock>
+      <ProgressBar DockPanel.Dock="Top" Margin="10 10 10 0" Classes="Material" IsIndeterminate="{Binding IsInProgress}" Height="20" Value="100"></ProgressBar>
+
+      <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10 0 10 10" VerticalAlignment="Center" IsVisible="{Binding IsCompletedSuccessfully}">
+        <DrawingPresenter Width="24" Height="24" Margin="0" Drawing="{DynamicResource VSCodeDark.info.blue}" />
+        <TextBlock Margin="10 0 10 0" Classes="Material h2" VerticalAlignment="Center">Operation completed successfully!</TextBlock>
+        <Button Classes="Material" Command="{Binding BrowseProject}">Browse project files</Button>
+      </StackPanel>
+      <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10 0 10 10" IsVisible="{Binding IsCanceled}">
+        <DrawingPresenter Width="24" Height="24" Margin="0" Drawing="{DynamicResource VSCodeDark.warning.yellow}" />
+        <TextBlock Margin="10,0,0,0" Classes="Material h2" VerticalAlignment="Center">Operation aborted.</TextBlock>
+      </StackPanel>
+      <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10 0 10 10" IsVisible="{Binding IsFailed}">
+        <DrawingPresenter Width="24" Height="24" Margin="0" Drawing="{DynamicResource VSCodeDark.error.red}" />
+        <TextBlock Margin="10,0,0,0" Classes="Material h2" VerticalAlignment="Center">An unexpected error occured.</TextBlock>
+      </StackPanel>
+
+      <TextBox Margin="10" IsReadOnly="True" Text="{Binding Output}">Stout from command-line interface...</TextBox>
+    </DockPanel>
+    
+  </DockPanel>
+
+</UserControl>

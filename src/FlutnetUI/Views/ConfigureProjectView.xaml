@@ -1,0 +1,119 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:FlutnetUI.ViewModels;assembly=FlutnetUI"
+             xmlns:models="clr-namespace:FlutnetUI.Models;assembly=FlutnetUI"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="400"
+             x:Class="FlutnetUI.Views.ConfigureProjectView">
+
+  <UserControl.Styles>
+    <Style>
+      <Style.Resources>
+        <GeometryDrawing x:Key="Entypo+.Warning" Brush="#FFCC00" Geometry="M19.511,17.98L10.604,1.348C10.48,1.133,10.25,1,10,1C9.749,1,9.519,1.133,9.396,1.348L0.49,17.98  c-0.121,0.211-0.119,0.471,0.005,0.68C0.62,18.871,0.847,19,1.093,19h17.814c0.245,0,0.474-0.129,0.598-0.34  C19.629,18.451,19.631,18.191,19.511,17.98z M11,17H9v-2h2V17z M11,13.5H9V7h2V13.5z"   />
+      </Style.Resources>
+    </Style>
+  </UserControl.Styles>
+
+  <DockPanel>
+
+    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="0" Height="30">
+      <Panel Background="{DynamicResource Gray_Flutnet}" Height="10" Width="10"/>
+      <Panel Background="{DynamicResource SecondaryVariant}" Height="10" Width="10"/>
+      <Panel Background="{DynamicResource Gray_Flutnet}" Height="10" Width="10"/>
+    </StackPanel>
+    
+    <DockPanel>
+
+      <!-- Left panel for edit fields -->
+      <StackPanel Orientation="Vertical" DockPanel.Dock="Left" Spacing="0" Margin="6" Width="500">
+
+        <TextBlock Classes="Material h2">Project name</TextBlock>
+        <TextBox Classes="Material SecondaryVariant" Width="500" HorizontalAlignment="Left" Text="{Binding ProjectName}"></TextBox>
+        <Panel Height="20"/>
+
+        <TextBlock Classes="Material h2">Solution name</TextBlock>
+        <TextBox Classes="Material SecondaryVariant" Width="500" HorizontalAlignment="Left" Text="{Binding SolutionName}"></TextBox>
+        <Panel Height="20"/>
+
+        <TextBlock Classes="Material h2">Location</TextBlock>
+        <StackPanel Orientation="Horizontal" Margin="0" Spacing="6">
+          <TextBox Classes="Material SecondaryVariant" Width="458" Text="{Binding Location}" IsReadOnly="True"></TextBox>
+          <Button Classes="Material" Command="{Binding BrowseLocation}" ToolTip.Tip="Browse" Margin="0,0,10,0">...</Button>
+        </StackPanel>
+        <Panel Height="20"/>
+
+        <TextBlock Classes="Material h2">Flutter project name</TextBlock>
+        <TextBox Classes="Material SecondaryVariant" Width="500" HorizontalAlignment="Left" Text="{Binding FlutterModuleName}"></TextBox>
+        <Panel Height="20"/>
+        <CheckBox IsChecked="{Binding CreateFlutterSubfolder}">
+          <TextBlock Classes="Material">
+            Create a directory for Flutter-related projects within the solution directory
+          </TextBlock>
+        </CheckBox>
+        <Panel Height="20"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="3" Width="500" VerticalAlignment="Top">
+          <!--<DrawingPresenter Width="24" Height="24" Drawing="{StaticResource Entypo+.Warning}" IsVisible="{Binding FlutterVersionHasIssues}" />-->
+          <DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource VSCodeDark.warning.yellow}" IsVisible="{Binding FlutterVersionHasIssues}" />
+          <TextBlock Classes="Material" Width="473" TextWrapping="Wrap" Text="{Binding FlutterVersionNotes}">Installed Flutter version: 1.20.2</TextBlock>
+        </StackPanel>
+        
+      </StackPanel>
+
+      <!-- Right (fill) panel for TreeView -->
+      <!--<Border BorderThickness="1,1,1,1" BorderBrush="#FAFAFA" Background="#FDFDFD" Margin="10 2 2 44" CornerRadius="0">-->
+      <Border BorderThickness="1,1,1,1" BorderBrush="#FAFAFA" Background="#FDFDFD" Margin="6" CornerRadius="0">
+
+        <DockPanel>
+
+          <TreeView Name="ProjectTree" DockPanel.Dock="Left" BorderThickness="0" Items="{Binding ProjectTree}" MinWidth="200" MaxWidth="400" Margin="0">
+            <TreeView.Styles>
+              <Style Selector="TreeViewItem">
+                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
+                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+              </Style>
+              <Style Selector="TreeViewItem /template/ Border#SelectionBorder:pointerover">
+                <Setter Property="Background" Value="Transparent"/>
+              </Style>
+              <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder">
+                <Setter Property="Background" Value="Transparent"/>
+              </Style>
+              <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:focus">
+                <Setter Property="Background" Value="Transparent"/>
+              </Style>
+              <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:pointerover">
+                <Setter Property="Background" Value="Transparent"/>
+              </Style>
+              <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:pointerover:focus">
+                <Setter Property="Background" Value="Transparent"/>
+              </Style>
+            </TreeView.Styles>
+            <TreeView.DataTemplates>
+              <TreeDataTemplate DataType="vm:FolderTreeItem" ItemsSource="{Binding Children}">
+                <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center" Margin="0,3,0,0" HorizontalAlignment="Left">
+                  <!--<DrawingPresenter Width="24" Height="24" Drawing="{DynamicResource Material.Folder}" />-->
+                  <DrawingPresenter Width="22" Height="22" Drawing="{Binding Image, Mode=OneWay}" />
+                  <TextBlock Text="{Binding Text, Mode=OneWay}" />
+                </StackPanel>
+              </TreeDataTemplate>
+              <DataTemplate DataType="vm:FileTreeItem">
+                <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center" Margin="0,2,0,0">
+                  <DrawingPresenter Width="22" Height="22" Drawing="{Binding Image, Mode=OneWay}" />
+                  <TextBlock Text="{Binding Text, Mode=OneWay}" />
+                </StackPanel>
+              </DataTemplate>
+            </TreeView.DataTemplates>
+          </TreeView>
+
+          <!--Serve per filler a destra-->
+          <Panel/>
+
+        </DockPanel>
+
+      </Border>
+
+    </DockPanel>
+    
+  </DockPanel>
+</UserControl>

@@ -1,0 +1,105 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:FlutnetUI.ViewModels;assembly=FlutnetUI"
+             xmlns:m="clr-namespace:FlutnetUI.Models;assembly=FlutnetUI"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+             x:Class="FlutnetUI.Views.AppKeysView"
+             Padding="10">
+  <UserControl.Styles>
+    <Style>
+      <Style.Resources>
+        <GeometryDrawing x:Key="Unicons.MapMarkerInfo" Brush="Gray" Geometry="M12,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,12,10Zm8.46-.32A8.5,8.5,0,0,0,7.3,3.36,8.56,8.56,0,0,0,3.54,9.63,8.46,8.46,0,0,0,6,16.46l5.3,5.31a1,1,0,0,0,1.42,0L18,16.46A8.46,8.46,0,0,0,20.46,9.63ZM16.6,15.05,12,19.65l-4.6-4.6A6.49,6.49,0,0,1,5.53,9.83,6.57,6.57,0,0,1,8.42,5a6.47,6.47,0,0,1,7.16,0,6.57,6.57,0,0,1,2.89,4.81A6.49,6.49,0,0,1,16.6,15.05ZM12.92,7.57a.56.56,0,0,0-.09-.17l-.12-.15A1,1,0,0,0,11.8,7L11.62,7l-.18.09-.15.13-.12.15a.56.56,0,0,0-.09.17.6.6,0,0,0-.06.19A1.23,1.23,0,0,0,11,8a.88.88,0,0,0,.08.39,1.11,1.11,0,0,0,.21.32,1.06,1.06,0,0,0,.33.22,1.07,1.07,0,0,0,.76,0,1.19,1.19,0,0,0,.33-.22,1.11,1.11,0,0,0,.21-.32A1,1,0,0,0,13,8a1.23,1.23,0,0,0,0-.19A.6.6,0,0,0,12.92,7.57Z"   />
+        <GeometryDrawing x:Key="Octicons.Key" Brush="White" Geometry="M12.83 2.17C12.08 1.42 11.14 1.03 10 1c-1.13.03-2.08.42-2.83 1.17S6.04 3.86 6.01 5c0 .3.03.59.09.89L0 12v1l1 1h2l1-1v-1h1v-1h1v-1h2l1.09-1.11c.3.08.59.11.91.11 1.14-.03 2.08-.42 2.83-1.17S13.97 6.14 14 5c-.03-1.14-.42-2.08-1.17-2.83zM11 5.38c-.77 0-1.38-.61-1.38-1.38 0-.77.61-1.38 1.38-1.38.77 0 1.38.61 1.38 1.38 0 .77-.61 1.38-1.38 1.38z"   />
+        <GeometryDrawing x:Key="Material.Eye" Brush="#00afff" Geometry="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"   />
+        <GeometryDrawing x:Key="Material.Plus" Brush="Black" Geometry="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+        <GeometryDrawing x:Key="Material.Delete" Brush="White" Geometry="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"   />
+        <PathGeometry x:Key="MaterialDesign.AddCircle">F1M235,-363L235,-277 149,-277 149,-235 235,-235 235,-149 277,-149 277,-235 363,-235 363,-277 277,-277 277,-363 235,-363z M256,-469C374,-469 469,-374 469,-256 469,-138 374,-43 256,-42.9999961853027 138,-43 43,-138 42.9999961853027,-256 43,-374 138,-469 256,-469z</PathGeometry>
+        <PathGeometry x:Key="MaterialDesign.AddCircleOutline">F1M235,-363L277,-363 277,-277 363,-277 363,-235 277,-235 277,-149 235,-149 235,-235 149,-235 149,-277 235,-277 235,-363z M256,-427C162,-427 85,-350 85,-256 85,-162 162,-85 256,-85 350,-85 427,-162 427,-256 427,-350 350,-427 256,-427z M256,-469C374,-469 469,-374 469,-256 469,-138 374,-43 256,-42.9999961853027 138,-43 43,-138 42.9999961853027,-256 43,-374 138,-469 256,-469z</PathGeometry>
+        <PathGeometry x:Key="MaterialDesign.RemoveCircle">F1M149,-277L149,-235 363,-235 363,-277 149,-277z M256,-469C374,-469 469,-374 469,-256 469,-138 374,-43 256,-42.9999961853027 138,-43 43,-138 42.9999961853027,-256 43,-374 138,-469 256,-469z</PathGeometry>
+        <PathGeometry x:Key="MaterialDesign.RemoveCircleOutline">F1M149,-277L363,-277 363,-235 149,-235 149,-277z M256,-427C162,-427 85,-350 85,-256 85,-162 162,-85 256,-85 350,-85 427,-162 427,-256 427,-350 350,-427 256,-427z M256,-469C374,-469 469,-374 469,-256 469,-138 374,-43 256,-42.9999961853027 138,-43 43,-138 42.9999961853027,-256 43,-374 138,-469 256,-469z</PathGeometry>
+        <PathGeometry x:Key="Material.DeleteCircle">M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M17,7H14.5L13.5,6H10.5L9.5,7H7V9H17V7M9,18H15A1,1 0 0,0 16,17V10H8V17A1,1 0 0,0 9,18Z</PathGeometry>
+        <PathGeometry x:Key="Material.DeleteCircleOutline">M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M16,10V17A1,1 0 0,1 15,18H9A1,1 0 0,1 8,17V10H16M13.5,6L14.5,7H17V9H7V7H9.5L10.5,6H13.5Z</PathGeometry>
+      </Style.Resources>
+    </Style>
+  </UserControl.Styles>
+  <DockPanel>
+    
+    <!-- Panel for page load -->
+    <StackPanel Orientation="Vertical" Spacing="10" IsVisible="{Binding IsLoading}" DockPanel.Dock="Top">
+      <TextBlock Classes="Material h2" FontWeight="Normal">Loading data, please wait...</TextBlock>
+      <ProgressBar Classes="Material" IsIndeterminate="True" Height="20" Value="100"></ProgressBar>
+    </StackPanel>
+    
+    <!-- bottom description panel -->
+    <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,10" LastChildFill="True" IsVisible="{Binding IsDescriptionVisible}" >
+      <Border BorderThickness="0" BorderBrush="LightGray" CornerRadius="0" Margin="0,0,0,0" Padding="5">
+
+        <Grid Name="ButtonsStackPanel" ColumnDefinitions="*" RowDefinitions="*"  Margin="0" >
+
+          <Border Grid.Row="0" Grid.Column="0" MaxWidth="500" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="22,10,0,0">
+            <TextBlock Foreground="Gray" TextWrapping="Wrap" Classes="h2" Text="{Binding Description}" />
+          </Border>
+
+          <!-- Top left info icon -->
+          <Panel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="22" Height="22">
+            <DrawingPresenter Stretch="Uniform" Drawing="{StaticResource Unicons.MapMarkerInfo}" />
+          </Panel>
+
+        </Grid>
+
+      </Border>
+    </DockPanel>
+    
+    <!-- Panel for page content -->
+    <DockPanel LastChildFill="False" IsVisible="{Binding !IsLoading}">
+      <ScrollViewer Name="ScrollViewer" DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto">
+        <ItemsControl Items="{Binding Items}">
+          <ItemsControl.DataTemplates>
+            <DataTemplate DataType="m:AppKeyItem">
+              <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="10" Margin="0,0,0,10">
+                
+                <TextBlock Classes="Material h2" FontWeight="Normal" VerticalAlignment="Center" Width="500" Text="{Binding ApplicationId}"></TextBlock>
+
+                <!-- Button SHOW KEY code -->
+                <Button Classes="Material SecondaryVariant Circle"  Width="35" Height="35" Padding="8"
+                        Foreground="Black"
+                        Command="{Binding $parent[UserControl].DataContext.GetAppKey}"
+                        CommandParameter="{Binding $self}" ToolTip.Tip="Show the key value">
+                  <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <DrawingPresenter Stretch="Uniform" Drawing="{StaticResource Octicons.Key}" />
+                  </Panel>
+                </Button>
+
+                <!-- Button DELETE KEY code -->
+                <Button Command="{Binding $parent[UserControl].DataContext.Remove}"
+                        CommandParameter="{Binding $self}"
+                        Classes="Material SecondaryVariant Circle"  Width="35" Height="35" Padding="8"
+                        Foreground="Black"
+                        IsVisible="{Binding !$parent[UserControl].DataContext.TrialMode}"
+                        ToolTip.Tip="Delete the key">
+                  <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <DrawingPresenter Stretch="Uniform" Drawing="{StaticResource Material.Delete}" />
+                  </Panel>
+                </Button>
+                
+              </StackPanel>
+            </DataTemplate>
+          </ItemsControl.DataTemplates>
+        </ItemsControl>
+      </ScrollViewer>
+      <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,10,0,0" Spacing="10" IsVisible="{Binding !TrialMode}">
+        <TextBox Name="NewAppId" Classes="Material SecondaryVariant" Height="32" Width="500" HorizontalAlignment="Left" Watermark="Enter a new application ID" ToolTip.Tip="Insert your Android or iOS applicaton ID like 'com.mycompany.MyApp' " Text="{Binding NewApplicationId}" />
+        <Button Command="{Binding Add}" Classes="Material Secondary Circle"  Width="40" Height="40" Padding="12" Margin="0"
+                ToolTip.Tip="Add new license key">
+          <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <DrawingPresenter Stretch="Uniform" Drawing="{StaticResource Material.Plus}" />
+          </Panel>
+         </Button>
+      </StackPanel>
+    </DockPanel>
+  
+  </DockPanel>
+  
+</UserControl>

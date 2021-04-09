@@ -1,0 +1,22 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rxui="http://reactiveui.net"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="FlutnetUI.Views.MainWindow"
+        MinWidth="1000" MinHeight="600" Width="1000" Height="600"      
+        Icon="/Assets/flutnet-logo.ico"
+        WindowStartupLocation="CenterScreen"
+        Title="Flutnet Console">
+  
+  <!--The real content is in HomePanel, so we can switch from windows to another future layout-->
+  <rxui:RoutedViewHost Router="{Binding Router}">
+    <rxui:RoutedViewHost.DefaultContent>
+      <TextBlock Text="Default content"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center" />
+    </rxui:RoutedViewHost.DefaultContent>
+  </rxui:RoutedViewHost>
+  
+</Window>

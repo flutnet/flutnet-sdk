@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ext="clr-namespace:FlutnetUI.Ext.Controls;assembly=FlutnetUI.Ext"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="FlutnetUI.Views.SetupFinishView"
+             Padding="10">
+  <UserControl.Styles>
+    <Style Selector="TextBlock.Material">
+      <!-- <Setter Property="FontFamily" Value="/Assets/Fonts/Roboto-*.ttf#Roboto" /> -->
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style Selector="TextBlock.forinput">
+      <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+  </UserControl.Styles>
+  <ext:HtmlLabel BaseStylesheet="{Binding StyleSheet}" Text="{Binding Text}" />
+</UserControl>

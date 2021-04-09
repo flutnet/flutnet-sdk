@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net20;netstandard2.0</TargetFrameworks>
+    <RootNamespace>TheArtOfDev.HtmlRenderer</RootNamespace>
+    <Version>1.5.1-beta2</Version>
+    <Product>HTML Renderer Core</Product>
+    <Company>Arthur Teplitzki</Company>
+    <PackageLicenseFile></PackageLicenseFile>
+    <AssemblyName>HtmlRenderer</AssemblyName>
+    <Authors>Arthur Teplitzki</Authors>
+    <RepositoryUrl>https://htmlrenderer.codeplex.com/</RepositoryUrl>
+    <PackageProjectUrl>https://htmlrenderer.codeplex.com/</PackageProjectUrl>
+    <PackageTags>html render renderer draw core</PackageTags>
+    <PackageReleaseNotes>See http://htmlrenderer.codeplex.com/releases.&lt;</PackageReleaseNotes>
+    <PackageId>HtmlRenderer.Core</PackageId>
+  </PropertyGroup>
+
+</Project>

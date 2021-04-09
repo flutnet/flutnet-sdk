@@ -1,0 +1,50 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rxui="http://reactiveui.net"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="560"
+        x:Class="FlutnetUI.Views.SetupWindow"
+        Width="800" Height="560"      
+        Icon="/Assets/flutnet-logo.ico"
+        WindowStartupLocation="CenterScreen"
+        Title="Flutnet - Setup &amp; Troubleshoot">
+  <DockPanel LastChildFill="True">
+
+    <!-- Top panel with title and logo -->
+    <DockPanel Name="TitleArea" DockPanel.Dock="Top" Height="65" Background="White">
+      <DockPanel LastChildFill="True">
+        <Border Width="222" DockPanel.Dock="Right" Padding="0" Margin="20,0,20,0" IsVisible="False">
+          <Image Source="/Assets/Logo_txt.png"/>
+        </Border>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+          <TextBlock Classes="Material Title" Name="TitleTextBox" Foreground="{DynamicResource Primary}" Margin="15,0,0,0" VerticalAlignment="Center" Text="{Binding Title}">Title</TextBlock>
+          <Border Background="{DynamicResource SecondaryVariant}" Height="0" Margin="10,0,0,0" CornerRadius="3"/>
+        </StackPanel>
+      </DockPanel>
+    </DockPanel>
+
+    <!-- Content Area -->
+    <Panel Name="ContentArea" Background="WhiteSmoke">
+      <Border Background="White" BorderThickness="0.5,0.5,2,2" BorderBrush="LightGray" CornerRadius="5,5,5,5" Margin="9,9,9,9">
+        <DockPanel LastChildFill="True">
+          <!-- Bottom panel with buttons -->
+          <DockPanel DockPanel.Dock="Bottom" Name="ButtonArea" Margin="5" LastChildFill="True">
+            <Button DockPanel.Dock="Left" Classes="Material" MinWidth="120" Height="40" Command="{Binding Button1Command}" Content="{Binding Button1Text}" IsVisible="{Binding HasButton1}">Button 1</Button>
+            <StackPanel Orientation="Horizontal" Spacing="10"  HorizontalAlignment="Right" Margin="5 0 0 0" VerticalAlignment="Bottom">
+              <Button Classes="Material" MinWidth="120" Height="40" Command="{Binding Button2Command}" Content="{Binding Button2Text}" IsVisible="{Binding HasButton2}">Button 2</Button>
+              <Button Classes="Material Secondary Action" MinWidth="120" Height="40" Command="{Binding Button3Command}" Content="{Binding Button3Text}" IsVisible="{Binding HasButton3}" IsEnabled="{Binding Button3Enabled}">Button 3</Button>
+            </StackPanel>
+          </DockPanel>
+          <!-- Host for routed view model (current page) -->
+          <rxui:RoutedViewHost Router="{Binding Router}">
+            <rxui:RoutedViewHost.DefaultContent>
+              <TextBlock Text="Default content" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </rxui:RoutedViewHost.DefaultContent>
+          </rxui:RoutedViewHost>   
+        </DockPanel>
+      </Border>
+    </Panel>
+    
+  </DockPanel> 
+</Window>

@@ -1,0 +1,97 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+             x:Class="FlutnetUI.Views.LicensingView"
+             Padding="10">
+
+  <UserControl.Styles>
+    <Style>
+      <Style.Resources>
+        <GeometryDrawing x:Key="Unicons.MapMarkerInfo" Brush="Gray" Geometry="M12,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,12,10Zm8.46-.32A8.5,8.5,0,0,0,7.3,3.36,8.56,8.56,0,0,0,3.54,9.63,8.46,8.46,0,0,0,6,16.46l5.3,5.31a1,1,0,0,0,1.42,0L18,16.46A8.46,8.46,0,0,0,20.46,9.63ZM16.6,15.05,12,19.65l-4.6-4.6A6.49,6.49,0,0,1,5.53,9.83,6.57,6.57,0,0,1,8.42,5a6.47,6.47,0,0,1,7.16,0,6.57,6.57,0,0,1,2.89,4.81A6.49,6.49,0,0,1,16.6,15.05ZM12.92,7.57a.56.56,0,0,0-.09-.17l-.12-.15A1,1,0,0,0,11.8,7L11.62,7l-.18.09-.15.13-.12.15a.56.56,0,0,0-.09.17.6.6,0,0,0-.06.19A1.23,1.23,0,0,0,11,8a.88.88,0,0,0,.08.39,1.11,1.11,0,0,0,.21.32,1.06,1.06,0,0,0,.33.22,1.07,1.07,0,0,0,.76,0,1.19,1.19,0,0,0,.33-.22,1.11,1.11,0,0,0,.21-.32A1,1,0,0,0,13,8a1.23,1.23,0,0,0,0-.19A.6.6,0,0,0,12.92,7.57Z"   />
+      </Style.Resources>
+    </Style>
+  </UserControl.Styles>
+
+  <DockPanel LastChildFill="True">
+
+    <!-- bottom description panel -->
+    <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,10" LastChildFill="True" IsVisible="{Binding IsDescriptionVisible}" >
+      <Border BorderThickness="0" BorderBrush="LightGray" CornerRadius="0" Margin="0,0,0,0" Padding="5">
+
+        <Grid Name="ButtonsStackPanel" ColumnDefinitions="*" RowDefinitions="*"  Margin="0" >
+
+          <Border Grid.Row="0" Grid.Column="0" MaxWidth="500"  HorizontalAlignment="Left" VerticalAlignment="Top" Padding="22,10,0,0">
+            <TextBlock Foreground="Gray" TextWrapping="Wrap" Classes="h2" Text="{Binding Description}" />
+          </Border>
+
+          <!-- Top left info icon -->
+          <Panel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="22" Height="22">
+            <DrawingPresenter Stretch="Uniform" Drawing="{StaticResource Unicons.MapMarkerInfo}" />
+          </Panel>
+
+        </Grid>
+
+      </Border>
+    </DockPanel>
+
+    <!-- real page content -->
+    <DockPanel LastChildFill="True">
+
+      <!-- Bottom panel with Cancel button -->
+      <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" IsVisible="{Binding IsActivationCancelable}" Margin="0 10 0 0">
+        <Button Classes="Material" Width="100" Command="{Binding Cancel}">Cancel</Button>
+      </StackPanel>
+
+      <!-- Panel for page content -->
+      <StackPanel Orientation="Vertical" Spacing="10">
+
+        <!-- Panel for activated (licensed) software information -->
+        <StackPanel Name="InfoPanel" DockPanel.Dock="Top" Orientation="Vertical" Spacing="10">
+          <StackPanel Orientation="Horizontal" Spacing="5" DataContext="{Binding LicenseInfo}">
+            <TextBlock Classes="Material h2" FontWeight="Normal">Software licensed to:</TextBlock>
+            <TextBlock Classes="Material h2" Text="{Binding LicenseOwner}">{License Owner}</TextBlock>
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Spacing="5" DataContext="{Binding LicenseInfo}">
+            <TextBlock Classes="Material h2" FontWeight="Normal">Product Key:</TextBlock>
+            <TextBlock Classes="Material h2" FontWeight="Normal" Text="{Binding ProductKey}">{Product Key}</TextBlock>
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Spacing="5" DataContext="{Binding LicenseInfo}">
+            <TextBlock Classes="Material h2" FontWeight="Normal">License Type:</TextBlock>
+            <TextBlock Classes="Material h2" FontWeight="Normal" Text="{Binding LicenseTypeText}">{License Type}</TextBlock>
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Classes="Material" Command="{Binding RenewLicense}">Renew</Button>
+            <Button Classes="Material" Command="{Binding ChangeProductKey}">Change product key</Button>
+          </StackPanel>
+        </StackPanel>
+
+        <!-- Label for NOT activated (licensed) software -->
+        <DockPanel Name="NotLicensedPanel">
+          <DrawingPresenter Name="NotLicensedIcon" DockPanel.Dock="Left" Width="24" Height="24" Margin="0 0 10 0" Drawing="{DynamicResource VSCodeDark.warning}"/>
+          <TextBlock Name="NotLicensedText" Classes="Material h2" FontWeight="Normal" TextWrapping="Wrap">Your Flutnet license has expired.</TextBlock>
+        </DockPanel>
+
+        <!-- Panel for license activation/renewal -->
+        <StackPanel Name="ActivationPanel" Orientation="Vertical" Spacing="10" IsVisible="{Binding NeedsActivation}" IsEnabled="{Binding !IsActivating}">
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <TextBox Classes="Material SecondaryVariant h2" Width="300" Watermark="Product Key" Text="{Binding ProductKey}"></TextBox>
+            <Button Classes="Material Secondary Action" Command="{Binding ActivateLicense}">Activate</Button>
+          </StackPanel>
+        </StackPanel>
+
+        <!-- Panel for activation progress -->
+        <StackPanel Orientation="Vertical" Spacing="10" IsVisible="{Binding IsActivating}">
+          <TextBlock Classes="Material h2" FontWeight="Normal">Elaborating request, please wait...</TextBlock>
+          <ProgressBar Classes="Material" IsIndeterminate="True" Height="20" Value="100"></ProgressBar>
+        </StackPanel>
+
+      </StackPanel>
+
+    </DockPanel>
+    
+  </DockPanel>
+  
+  
+</UserControl>

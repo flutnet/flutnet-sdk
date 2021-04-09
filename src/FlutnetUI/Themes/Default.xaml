@@ -1,0 +1,510 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style>
+    <Style.Resources>
+      <!-- Blue used un the home page leftbar -->
+      <SolidColorBrush x:Key="BlueNavy">#FF213347</SolidColorBrush>
+      <SolidColorBrush x:Key="BlueNavyLight">#2a415c</SolidColorBrush>
+      <SolidColorBrush x:Key="BlueNavyDark">#FF081023</SolidColorBrush>
+
+      <SolidColorBrush x:Key="IndicatorColor">#FFFFFFFF</SolidColorBrush>
+
+      
+
+      <!-- 
+      Come catturare colore a schermo:
+      - usa Editor PickPick -> download link https://picpick.app/it/ 
+        - apri il programma -> Accessori grafici -> selettore colori
+        - seleziona a schermo il colore (sarà in formato RGB)
+        - copia il valore
+        - apri google -> cerca "color picker"
+        - nella pagina web incolla in RGB: "***"
+        - prendi il valore in formato HEX, ed incollalo in questo file.
+      -->
+
+      <!-- 
+      Colore in versione piu chiara:
+      - vai su https://pinetools.com/lighten-color
+      - inserichi il colore di base
+      - nella sezione di destra usa il valore "Amount" per indicare quanto chiaro lo vuoi.
+      
+      Di base ho sempre usato 30.
+      -->
+
+      <!-- Colori logo flutnet -->
+      <SolidColorBrush x:Key="BlueDark_Flutnet"  Color="#003380"/>
+      <SolidColorBrush x:Key="BlueDark_Flutnet_15L"  Color="#0049b9"/>
+      <SolidColorBrush x:Key="BlueDark_Flutnet_30L"  Color="#0060f2"/>
+      <SolidColorBrush x:Key="BlueLight_Flutnet"  Color="#00afff"/>
+      <SolidColorBrush x:Key="BlueLight_Flutnet_30L"  Color="#4cc7fe"/>
+      <SolidColorBrush x:Key="BlueLight_Flutnet_90L"  Color="#e5f7ff"/>
+      <SolidColorBrush x:Key="Yellow_Flutnet"  Color="#ffcd00"/>
+      <SolidColorBrush x:Key="Yellow_Flutnet_30L"  Color="#fedb4c"/>
+
+      <SolidColorBrush x:Key="Gray_Flutnet"  Color="#bedcff"/>
+   
+      <SolidColorBrush x:Key="Green_Droid"  Color="#32de84"/>
+      <SolidColorBrush x:Key="Blue_Flutter"  Color="#45d1fd"/>
+      <SolidColorBrush x:Key="Blue_Xamarin"  Color="#3498db"/>
+
+
+      <!-- Material Color Reference 
+         https://material.io/design/color/the-color-system.html#tools-for-picking-colors  
+         https://www.materialui.co/colors 
+     -->
+      
+      <SolidColorBrush x:Key="Gray_50"  Color="#FAFAFA"/>
+      <SolidColorBrush x:Key="Gray_100"  Color="#F5F5F5"/>
+      <SolidColorBrush x:Key="Gray_200"  Color="#EEEEEE"/>
+
+      <SolidColorBrush x:Key="Red_800"  Color="#C62828"/>
+      <SolidColorBrush x:Key="Red_900"  Color="#B71C1C"/>
+      <SolidColorBrush x:Key="Red_A200" Color="#FF5252"/>
+      <SolidColorBrush x:Key="Red_A400" Color="#FF1744"/>
+
+      <SolidColorBrush x:Key="Pink_500"  Color="#E91E63"/>
+      <SolidColorBrush x:Key="Pink_A100"  Color="#FF80AB"/>
+      <SolidColorBrush x:Key="Pink_A200"  Color="#FF4081"/>
+      <SolidColorBrush x:Key="Pink_A400"  Color="#F50057"/>
+
+      <SolidColorBrush x:Key="Indigo_800"  Color="#283593"/>
+      <SolidColorBrush x:Key="Indigo_900"  Color="#1A237E"/>
+      <SolidColorBrush x:Key="Indigo_A100" Color="#8C9EFF"/>
+      <SolidColorBrush x:Key="Indigo_A200" Color="#536DFE"/>
+      <SolidColorBrush x:Key="Indigo_A400" Color="#3D5AFE"/>
+
+      <SolidColorBrush x:Key="Green_A100" Color="#B9F6CA"/>
+      <SolidColorBrush x:Key="Green_A200" Color="#69F0AE"/>
+      <SolidColorBrush x:Key="Green_A400" Color="#00E676"/>
+
+      <SolidColorBrush x:Key="Base">#FFFFFFFF</SolidColorBrush>
+      <SolidColorBrush x:Key="BaseOver">#FAFAFA</SolidColorBrush>
+
+      <SolidColorBrush x:Key="Primary">#003380</SolidColorBrush>
+      <SolidColorBrush x:Key="PrimaryOver">#0060f2</SolidColorBrush>
+
+      <SolidColorBrush x:Key="PrimaryVariant">#1A237E</SolidColorBrush>
+      <SolidColorBrush x:Key="PrimaryVariantOver">#3F51B5</SolidColorBrush>
+
+      <SolidColorBrush x:Key="Secondary">#ffcd00</SolidColorBrush>
+      <SolidColorBrush x:Key="SecondaryOver">#fedb4c</SolidColorBrush>
+
+      <SolidColorBrush x:Key="SecondaryVariant">#00afff</SolidColorBrush>
+      <SolidColorBrush x:Key="SecondaryVariantOver">#4cc7fe</SolidColorBrush>
+
+      <SolidColorBrush x:Key="Background">#FFFFFFFF</SolidColorBrush>
+      <SolidColorBrush x:Key="Surface">#FFFFFFFF</SolidColorBrush>
+      <SolidColorBrush x:Key="Error">#B71C1C</SolidColorBrush>
+      <SolidColorBrush x:Key="ErrorOver">#C62828</SolidColorBrush>
+
+      <SolidColorBrush x:Key="OnPrimary">#FFFFFFFF</SolidColorBrush>
+      <SolidColorBrush x:Key="OnPrimaryVariant">#FFFFFFFF</SolidColorBrush>
+      <SolidColorBrush x:Key="OnSecondary">#FF000000</SolidColorBrush>
+      <SolidColorBrush x:Key="OnSecondaryVariant">#FFFFFFFF</SolidColorBrush>
+      <SolidColorBrush x:Key="OnBackground">#FF000000</SolidColorBrush>
+      <SolidColorBrush x:Key="OnSurface">#FF000000</SolidColorBrush>
+      <SolidColorBrush x:Key="OnError">#FFFFFFFF</SolidColorBrush>
+    </Style.Resources>
+  </Style>
+  
+  <Style Selector="TextBox:focus /template/ Border#border">
+    <Setter Property="BorderBrush" Value="DarkBlue"/>
+  </Style>
+
+  
+
+  
+  <!-- Image buttons styles -->
+  <Style Selector="Button.ImageButton">
+    <Setter Property="Height" Value="32"/>
+    <Setter Property="Width" Value="32" />
+    <Setter Property="Foreground" Value="{DynamicResource Background}"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DrawingPresenter>
+          <DrawingPresenter.Drawing>
+            <GeometryDrawing Brush="{Binding $parent[Button].Foreground}" Geometry="{Binding $parent[Button].Tag}"/>
+          </DrawingPresenter.Drawing>
+        </DrawingPresenter>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+  <Style Selector="Button.ImageButton:pointerover">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DrawingPresenter>
+          <DrawingPresenter.Drawing>
+            <GeometryDrawing Brush="{Binding $parent[Button].Foreground}" Geometry="{Binding $parent[Button].Tag}"/>
+          </DrawingPresenter.Drawing>
+        </DrawingPresenter>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+  <Style Selector="Button.ImageButton:pressed">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DrawingPresenter>
+          <DrawingPresenter.Drawing>
+            <GeometryDrawing Brush="{Binding $parent[Button].Foreground}" Geometry="{Binding $parent[Button].Tag}"/>
+          </DrawingPresenter.Drawing>
+        </DrawingPresenter>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="Button.ImageButton.BaseAccent">
+    <Setter Property="Foreground" Value="{DynamicResource Base}"/>
+  </Style>
+  <Style Selector="Button.ImageButton.PrimaryAccent">
+    <Setter Property="Foreground" Value="{DynamicResource Primary}"/>
+  </Style>
+  <Style Selector="Button.ImageButton.PrimaryVariantAccent">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryVariant}"/>
+  </Style>
+  <Style Selector="Button.ImageButton.SecondaryAccent">
+    <Setter Property="Foreground" Value="{DynamicResource Secondary}"/>
+  </Style>
+  <Style Selector="Button.ImageButton.SecondaryVariantAccent">
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryVariant}"/>
+  </Style>
+
+  <Style Selector="Button:pointerover.ImageButton.BaseAccent">
+    <Setter Property="Foreground" Value="{DynamicResource BaseOver}"/>
+  </Style>
+  <Style Selector="Button:pointerover.ImageButton.PrimaryAccent">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryOver}"/>
+  </Style>
+  <Style Selector="Button:pointerover.ImageButton.PrimaryVariantAccent">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryVariantOver}"/>
+  </Style>
+  <Style Selector="Button:pointerover.ImageButton.SecondaryAccent">
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryOver}"/>
+  </Style>
+  <Style Selector="Button:pointerover.ImageButton.SecondaryVariantAccent">
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryVariantOver}"/>
+  </Style>
+
+  <!-- Homepage left toolbar styles -->
+  <Style Selector="Button.leftbar /template/ ContentPresenter">
+    <Setter Property="CornerRadius" Value="0"/>
+  </Style>
+  <Style Selector="Button.leftbar">
+    <Setter Property="Foreground" Value="LightGray"/>
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet}"/>
+    <Setter Property="FontSize" Value="16"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource BlueDark_Flutnet}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Margin" Value="00"/>
+    <Setter Property="Height" Value="60"/>
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+  </Style>
+  <Style Selector="Button:pressed.leftbar">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet_15L}"/>
+  </Style>
+  <Style Selector="Button:focus.leftbar#noactive">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet_15L}"/>
+  </Style>
+  <Style Selector="Button:pointerover.leftbar">
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="Button:pointerover.leftbar /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet_30L}"/>
+  </Style>
+
+
+  <!-- Homepage left toolbar styles -->
+  <Style Selector="ToggleButton.leftbar /template/ ContentPresenter">
+    <Setter Property="CornerRadius" Value="0"/>
+  </Style>
+  <Style Selector="ToggleButton.leftbar">
+    <Setter Property="Foreground" Value="LightGray"/>
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet}"/>
+    <Setter Property="FontSize" Value="16"/>
+    <Setter Property="BorderBrush" Value="White"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Margin" Value="0"/>
+    <Setter Property="Height" Value="65"/>
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+  </Style>
+  <Style Selector="ToggleButton:pressed.leftbar">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet_30L}"/>
+  </Style>
+  <Style Selector="ToggleButton:focus.leftbar#noactive">
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet_30L}"/>
+  </Style>
+  <Style Selector="ToggleButton:checked.leftbar">
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="ToggleButton:checked.leftbar /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet_30L}"/>
+    <Setter Property="BorderBrush" Value="White"/>
+    <Setter Property="BorderThickness" Value="6,0,0,0"/>
+  </Style> 
+  <Style Selector="ToggleButton:pointerover.leftbar">
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="ToggleButton:pointerover.leftbar /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet_30L}"/>
+  </Style>
+  <Style Selector="ToggleButton:pressed.leftbar  /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource BlueDark_Flutnet_15L}"/>
+  </Style>
+
+
+
+
+
+  <!-- Material progressbar style -->
+  <Style Selector="ProgressBar.Material">
+    <Setter Property="Background" Value="{DynamicResource BlueLight_Flutnet_90L}"/>
+    <Setter Property="Foreground" Value="{DynamicResource BlueLight_Flutnet}"/>
+  </Style>
+  
+  
+  <!-- Material buttons styles -->
+  <Style Selector="Button.Material /template/ ContentPresenter">
+    <Setter Property="CornerRadius" Value="0,0,0,0"/>
+    <Setter Property="BorderThickness" Value="0.5,0.5,0.5,0.5"/>
+    <Setter Property="BorderBrush" Value="#33000000"/>
+  </Style>
+
+  <Style Selector="Button.Material">
+    <Setter Property="MinHeight" Value="35"/>
+    <Setter Property="Foreground" Value="{DynamicResource OnBackground}"/>
+    <Setter Property="Background" Value="{DynamicResource Background}"/>
+    <Setter Property="BorderThickness" Value="0,0,0,0"/>
+    <Setter Property="FontWeight" Value="Normal"/>
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="Margin" Value="1"/>
+    <Setter Property="Padding" Value="10,0,10,0"/>
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+  </Style>
+
+  <Style Selector="Button.Primary">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="Foreground" Value="{DynamicResource OnPrimary}"/>
+    <Setter Property="Background" Value="{DynamicResource Primary}"/>
+  </Style>
+
+  <Style Selector="Button.PrimaryVariant">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="Foreground" Value="{DynamicResource OnPrimaryVariant}"/>
+    <Setter Property="Background" Value="{DynamicResource PrimaryVariant}"/>
+  </Style>
+
+  <Style Selector="Button.Secondary">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="Foreground" Value="{DynamicResource OnSecondary}"/>
+    <Setter Property="Background" Value="{DynamicResource Secondary}"/>
+  </Style>
+
+  <Style Selector="Button.SecondaryVariant">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="Foreground" Value="{DynamicResource OnSecondaryVariant}"/>
+    <Setter Property="Background" Value="{DynamicResource SecondaryVariant}"/>
+  </Style>
+
+  <Style Selector="Button.Error">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="Foreground" Value="{DynamicResource OnError}"/>
+    <Setter Property="Background" Value="{DynamicResource Error}"/>
+  </Style>
+
+  <Style Selector="Button:pointerover.Material /template/ ContentPresenter">
+    <Setter Property="BorderBrush" Value="#99000000"/>
+  </Style>
+
+  <Style Selector="Button:pointerover.Material">
+    <Setter Property="Background" Value="{DynamicResource BaseOver}"/>
+  </Style>
+
+  <Style Selector="Button:pointerover.Primary">
+    <Setter Property="Background" Value="{DynamicResource PrimaryOver}"/>
+  </Style>
+
+  <Style Selector="Button:pointerover.PrimaryVariant">
+    <Setter Property="Background" Value="{DynamicResource PrimaryVariantOver}"/>
+  </Style>
+
+  <Style Selector="Button:pointerover.Secondary">
+    <Setter Property="Background" Value="{DynamicResource SecondaryOver}"/>
+  </Style>
+
+  <Style Selector="Button:pointerover.SecondaryVariant">
+    <Setter Property="Background" Value="{DynamicResource SecondaryVariantOver}"/>
+  </Style>
+
+  <Style Selector="Button:pointerover.Error">
+    <Setter Property="Foreground" Value="{DynamicResource OnError}"/>
+    <Setter Property="Background" Value="{DynamicResource ErrorOver}"/>
+  </Style>
+
+  <Style Selector="Button:pressed.Material"></Style>
+  <Style Selector="Button:focus.Material"></Style>
+
+
+  <Style Selector="Button.Circle /template/ ContentPresenter">
+    <Setter Property="CornerRadius" Value="20"/>
+    <Setter Property="BorderThickness" Value="0"/>
+  </Style>
+
+
+  <!-- Material TextBox styles -->
+  <Style Selector="TextBox.Material">
+    <Setter Property="Foreground" Value="{DynamicResource OnSurface}"/>
+    <Setter Property="Background" Value="{DynamicResource Surface}"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1.2"/>
+    <Setter Property="FontWeight" Value="Normal"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="Margin" Value="1"/>
+    <Setter Property="Padding" Value="5,5,5,5"/>
+    <Setter Property="SelectionBrush" Value="{DynamicResource OnSurface}"/>
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource BaseOver}"/>
+  </Style>
+
+  <Style Selector="TextBox.Primary">
+    <Setter Property="SelectionBrush" Value="{DynamicResource Primary}"/>
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource OnPrimary}"/>
+  </Style>
+
+  <Style Selector="TextBox.PrimaryVariant">
+    <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryVariant}"/>
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource OnPrimaryVariant}"/>
+  </Style>
+
+  <Style Selector="TextBox.Secondary">
+    <Setter Property="SelectionBrush" Value="{DynamicResource Secondary}"/>
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource OnSecondary}"/>
+  </Style>
+
+  <Style Selector="TextBox.SecondaryVariant">
+    <Setter Property="SelectionBrush" Value="{DynamicResource SecondaryVariant}"/>
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource OnSecondaryVariant}"/>
+  </Style>
+
+  <Style Selector="TextBox.Error">
+    <Setter Property="SelectionBrush" Value="{DynamicResource Error}"/>
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource OnError}"/>
+  </Style>
+
+  <Style Selector="TextBox:pointerover.Material  /template/ Border#border">
+    <Setter Property="BorderThickness" Value="0.2,0.2,0.2,1"/>
+  </Style>
+
+  <Style Selector="TextBox:pointerover.Primary  /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource Primary}"/>
+  </Style>
+
+  <Style Selector="TextBox:pointerover.PrimaryVariant  /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryVariant}"/>
+  </Style>
+
+  <Style Selector="TextBox:pointerover.Secondary  /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource Secondary}"/>
+  </Style>
+
+  <Style Selector="TextBox:pointerover.SecondaryVariant  /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource SecondaryVariant}"/>
+  </Style>
+
+  <Style Selector="TextBox:pointerover.Error  /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource Error}"/>
+  </Style>
+
+  <Style Selector="TextBox:focus.Material  /template/ Border#border">
+    <Setter Property="BorderThickness" Value="0.2,0.2,0.2,1"/>
+  </Style>
+
+  <Style Selector="TextBox:focus.Primary /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource Primary}"/>
+  </Style>
+
+  <Style Selector="TextBox:focus.PrimaryVariant /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryVariant}"/>
+  </Style>
+
+  <Style Selector="TextBox:focus.Secondary /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource Secondary}"/>
+  </Style>
+
+  <Style Selector="TextBox:focus.SecondaryVariant /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource SecondaryVariant}"/>
+  </Style>
+
+  <Style Selector="TextBox:focus.Error /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource Error}"/>
+  </Style>
+
+
+  <!-- Material TextBlock styles -->
+  <Style Selector="TextBlock.Material">
+    <Setter Property="MinHeight" Value="10"/>
+    <Setter Property="TextAlignment" Value="Left"/>
+    <Setter Property="Margin" Value="2,0,2,0"/>
+    <Setter Property="Foreground" Value="{DynamicResource OnSurface}"/>
+    <Setter Property="Background" Value="{DynamicResource Surface}"/>
+  </Style>
+
+  <Style Selector="TextBlock.Primary">
+    <Setter Property="Foreground" Value="{DynamicResource Primary}"/>
+  </Style>
+
+  <Style Selector="TextBlock.PrimaryVariant">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryVariant}"/>
+  </Style>
+
+  <Style Selector="TextBlock.Secondary">
+    <Setter Property="Foreground" Value="{DynamicResource Secondary}"/>
+  </Style>
+
+  <Style Selector="TextBlock.SecondaryVariant">
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryVariant}"/>
+  </Style>
+
+  <Style Selector="TextBlock.Error">
+    <Setter Property="Foreground" Value="{DynamicResource Error}"/>
+  </Style>
+
+  <Style Selector="TextBlock.Title">
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="FontSize" Value="27"/>
+    <Setter Property="Margin" Value="5,5,5,5"/>
+  </Style>
+
+  <Style Selector="TextBlock.h1">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="FontSize" Value="19"/>
+  </Style>
+
+  <Style Selector="TextBlock.h2">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="FontSize" Value="15"/>
+  </Style>
+
+  <Style Selector="Button.h1">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="FontSize" Value="19"/>
+  </Style>
+
+  <Style Selector="Button.h2">
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="FontSize" Value="15"/>
+  </Style>
+
+  <Style Selector="Button.Action">
+    <Setter Property="FontSize" Value="17"/>
+  </Style>
+  
+</Styles>
