@@ -18,9 +18,6 @@ namespace FlutnetUI.ViewModels
 
             BackVisible = false;
 
-            TrialMode = true;
-            screen?.WhenAnyValue(p => p.TrialMode).BindTo(this, p => p.TrialMode);
-
             this.WhenAnyValue(t => t.AppName, t => t.OrganizationId, t => t.TargetAndroid, t => t.TargetIos,
                               (app, org, target1, target2) => !string.IsNullOrWhiteSpace(app) && !string.IsNullOrWhiteSpace(org) && (target1 || target2))
                 .BindTo(this, t => t.NextEnabled);
@@ -59,13 +56,6 @@ namespace FlutnetUI.ViewModels
         {
             return new ConfigureProjectViewModel(BuildSettings(), HostScreen);
         }
-
-        public bool TrialMode
-        {
-            get => _trialMode;
-            set => this.RaiseAndSetIfChanged(ref _trialMode, value);
-        }
-        bool _trialMode;
 
         public string AppName
         {

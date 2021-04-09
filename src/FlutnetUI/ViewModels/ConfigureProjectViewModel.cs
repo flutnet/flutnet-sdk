@@ -14,7 +14,6 @@ using OperatingSystem = FlutnetUI.Utilities.OperatingSystem;
 using static FlutnetUI.Utilities.NamingConventions;
 using FlutnetUI.Models;
 using FlutnetUI.Utilities;
-using ngs.nlog;
 
 namespace FlutnetUI.ViewModels
 {
@@ -236,7 +235,7 @@ namespace FlutnetUI.ViewModels
             }
             catch (Exception ex)
             {
-                NLog.Ex(ex);
+                Log.Ex(ex);
                 return string.Empty;
             }
         }

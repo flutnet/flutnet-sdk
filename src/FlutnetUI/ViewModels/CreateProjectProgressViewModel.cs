@@ -25,10 +25,6 @@ namespace FlutnetUI.ViewModels
             _appSettings = appSettings;
             _projectSettings = projectSettings;
 
-            TrialMode = true;
-            screen?.WhenAnyValue(p => p.TrialMode).BindTo(this, p => p.TrialMode);
-
-
             Title = "New Project";
             Description = "The project will take some time to generate.\nWait until the procedure finish.\n";
             IsDescriptionVisible = false;
@@ -164,14 +160,5 @@ namespace FlutnetUI.ViewModels
         ObservableAsPropertyHelper<string> _output;
 
         public ReactiveCommand<Unit, Unit> BrowseProject { get; }
-
-
-        public bool TrialMode
-        {
-            get => _trialMode;
-            set => this.RaiseAndSetIfChanged(ref _trialMode, value);
-        }
-        bool _trialMode;
-
     }
 }

@@ -28,10 +28,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AvaloniaResource Remove="Flutnet.Cli\**" />
     <AvaloniaResource Remove="logs\**" />
+    <Compile Remove="Flutnet.Cli\**" />
     <Compile Remove="logs\**" />
+    <EmbeddedResource Remove="Flutnet.Cli\**" />
     <EmbeddedResource Remove="logs\**" />
+    <None Remove="Flutnet.Cli\**" />
     <None Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Flutnet.Cli\Properties\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,10 +55,6 @@
     <EmbeddedResource Include="Assets\Fonts\Roboto-Regular.ttf" />
     <EmbeddedResource Include="Assets\Fonts\Roboto-Thin.ttf" />
     <EmbeddedResource Include="Assets\Fonts\Roboto-ThinItalic.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Flutnet.Cli\Properties\GlobalAssemblyInfo.cs" Link="Properties\GlobalAssemblyInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>

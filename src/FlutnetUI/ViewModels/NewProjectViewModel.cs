@@ -100,14 +100,6 @@ namespace FlutnetUI.ViewModels
 
         #endregion
 
-
-        public bool TrialMode
-        {
-            get => _trialMode;
-            set => this.RaiseAndSetIfChanged(ref _trialMode, value);
-        }
-        bool _trialMode;
-
         public ReactiveCommand<Unit, Unit> GoNext => _goNext.Value;
         ObservableAsPropertyHelper<ReactiveCommand<Unit, Unit>> _goNext;
 
