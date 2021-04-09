@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{36E993B2-7D4C-4A04-836F-DAF3643F006E}"
+	ProjectSection(SolutionItems) = preProject
+		assets\sdk.table.xml = assets\sdk.table.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flutnet.Cli.Core", "src\Flutnet.Cli.Core\Flutnet.Cli.Core.csproj", "{8553A806-AF84-4AD5-9761-FA74C59DBB12}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Flutnet.Shared", "src\Flutnet.Shared\Flutnet.Shared.shproj", "{E9955800-F9E3-4C64-BE6E-368B60DEDB1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flutnet.Cli.DTO", "src\Flutnet.Cli.DTO\Flutnet.Cli.DTO.csproj", "{20979569-7A91-49A7-AFF0-F7074975D794}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flutnet.Cli", "src\Flutnet.Cli\Flutnet.Cli.csproj", "{788A118D-C9D7-44BF-B02F-F6B0D1D52899}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\comps\Flutnet.Shared\Flutnet.Shared.projitems*{53aa5788-e65f-4a95-92da-01a609045f3d}*SharedItemsImports = 5
+		..\comps\Flutnet.Shared\Flutnet.Shared.projitems*{e9955800-f9e3-4c64-be6e-368b60dedb1f}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8553A806-AF84-4AD5-9761-FA74C59DBB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8553A806-AF84-4AD5-9761-FA74C59DBB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8553A806-AF84-4AD5-9761-FA74C59DBB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8553A806-AF84-4AD5-9761-FA74C59DBB12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20979569-7A91-49A7-AFF0-F7074975D794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20979569-7A91-49A7-AFF0-F7074975D794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20979569-7A91-49A7-AFF0-F7074975D794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20979569-7A91-49A7-AFF0-F7074975D794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788A118D-C9D7-44BF-B02F-F6B0D1D52899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788A118D-C9D7-44BF-B02F-F6B0D1D52899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788A118D-C9D7-44BF-B02F-F6B0D1D52899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788A118D-C9D7-44BF-B02F-F6B0D1D52899}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4547DDFC-D9ED-4906-AB5B-15066A84F755}
+	EndGlobalSection
+EndGlobal

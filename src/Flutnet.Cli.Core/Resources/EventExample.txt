@@ -1,0 +1,13 @@
+﻿  
+  
+  
+  
+  
+  final Stream<BluetoothDeviceInfo> _events;
+  Stream<BluetoothDeviceInfo> get events => _events;
+
+  IBluetoothService({
+    @required this.instanceId,
+  }) : _events = Bridge()
+            .events(instanceId: instanceId, event: 'event')
+            .map((_) => BluetoothDeviceInfo.fromJson(_));

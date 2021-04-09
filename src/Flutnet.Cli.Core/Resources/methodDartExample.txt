@@ -1,0 +1,31 @@
+  static const _k_sendContent = 'sendContent';
+  Future<void> sendContent({
+    String message,
+  }) async {
+    // Errors occurring on the platform side cause invokeMethod to throw
+    // PlatformExceptions.
+    try {
+      // Here the real code....
+      CmdLoginServiceSendContent _param = CmdLoginServiceSendContent(
+        message: message,
+      );
+
+      bool debugFlutterEnable = true;
+      Map<String, dynamic> _data;
+      if (debugFlutterEnable) {
+        _data = await FlutterXamarinDebug().invokeMethod(
+          id: serviceId,
+          methodId: _k_sendContent,
+          type: _kClass,
+          params: _param.toJson(),
+        );
+      } else {
+        _data = await _channel.invokeMethod(_k_sendContent, _param.toJson());
+      }
+
+      ResLoginServiceSendContent _res =
+          ResLoginServiceSendContent.fromJson(_data);
+    } on PlatformException catch (e) {
+      throw Exception("Unable to execute method 'sendContent': ${e.message}");
+    }
+  }

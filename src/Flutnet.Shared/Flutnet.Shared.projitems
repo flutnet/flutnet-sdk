@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e9955800-f9e3-4c64-be6e-368b60dedb1f</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Flutnet.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionTools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FlutnetAppInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FlutnetErrorCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FlutnetException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SignatureTools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TypeExtensions.cs" />
+  </ItemGroup>
+</Project>

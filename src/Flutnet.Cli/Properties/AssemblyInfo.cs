@@ -1,0 +1,1 @@
+﻿[assembly: System.Reflection.AssemblyTitle("Flutnet command-line interface")]

@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Novagem Solutions S.r.l.",
+  "classifications": [],
+  "description": "Sample native app for getting started with Flutnet.",
+  "name": "Flutnet Sample App",
+  "defaultName": "FlutnetApp",
+  "identity": "FlutnetApp.CSharp",
+  "groupIdentity": "FlutnetApp",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "shortName": "FlutnetApp",
+  "sourceName": "FlutnetApp",
+  "guids": [
+    "{619A1541-44DD-4A9A-9CE2-B53FCF6642E5}",
+    "{0853D4D8-6301-4A21-99C1-A15F2F82C542}",
+    "{D4812CF1-5C51-4748-875E-7DFE53E68DD0}",
+    "{34644C3E-BFDB-40BE-A16E-3A68E2E4957E}"
+  ],
+  "symbols": {
+    "appName": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "Sets the app (display) name of Xamarin.Android and Xamarin.iOS apps.",
+      "isRequired": "true",
+      "replaces": "FlutnetAppName"
+    },
+    "solutionName": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "Sets the name of the Visual Studio solution file.",
+      "isRequired": "true",
+      "replaces": "FlutnetSolutionName",
+      "fileRename": "FlutnetSolutionName"
+    },
+    "androidPackage": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "Sets the package name inside Xamarin.Android app AndroidManifest.xml file.",
+      "isRequired": "true",
+      "replaces": "com.companyname.flutnetappname_droid"
+    },
+    "iosBundle": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "Sets the bundle identifier inside Xamarin.iOS app Info.plist file.",
+      "isRequired": "true",
+      "replaces": "com.companyname.FlutnetAppName-iOS"
+    },
+    "target-android": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Indicates whether the Xamarin.Android app should be created."
+    },
+    "target-ios": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Indicates whether the Xamarin.iOS app should be created."
+    },
+    "appKey": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "Sets the Flutnet app key of Xamarin.Android and Xamarin.iOS apps.",
+      "isRequired": "false",
+      "replaces": "<YOUR_APP_KEY>"
+    },
+  },
+  "sources": [
+    {
+      "exclude": [
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        ".template.config/**/*",
+        "**/*.user",
+        ".vs/**/*"
+      ],
+      "modifiers": [
+        {
+          "condition": "(!target-android)",
+          "exclude": [ 
+            "FlutnetApp.Android/**/*",
+            "FlutnetApp.ModuleInterop.Android/**/*"
+          ]
+        },
+        {
+          "condition": "(!target-ios)",
+          "exclude": [ 
+            "FlutnetApp.iOS/**/*",
+            "FlutnetApp.PluginInterop.iOS/**/*"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\bridgeV11.dart" />
+    <None Remove="Resources\bridgeV12.dart" />
+    <None Remove="Resources\convertersV2.dart" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\bridgeV01.dart" />
+    <EmbeddedResource Include="Resources\bridgeV02.dart" />
+    <EmbeddedResource Include="Resources\bridgeV03.dart" />
+    <EmbeddedResource Include="Resources\bridgeV04.dart" />
+    <EmbeddedResource Include="Resources\bridgeV05.dart" />
+    <EmbeddedResource Include="Resources\bridgeV06.dart" />
+    <EmbeddedResource Include="Resources\bridgeV07.dart" />
+    <EmbeddedResource Include="Resources\bridgeV08.dart" />
+    <EmbeddedResource Include="Resources\bridgeV09.dart" />
+    <EmbeddedResource Include="Resources\bridgeV12.dart" />
+    <EmbeddedResource Include="Resources\bridgeV11.dart" />
+    <EmbeddedResource Include="Resources\bridgeV10.dart" />
+    <EmbeddedResource Include="Resources\convertersV2.dart" />
+    <EmbeddedResource Include="Resources\converters_test.dart" />
+    <EmbeddedResource Include="Resources\converters.dart" />
+    <EmbeddedResource Include="Resources\exceptions.dart" />
+    <Resource Include="Resources\flutter_xamarin_debug.dart" />
+    <Resource Include="Resources\fnet_message_debug.dart" />
+    <Resource Include="Resources\index.dart" />
+    <Resource Include="Resources\lib_message.dart" />
+    <Resource Include="Resources\message_serializer.dart" />
+    <Resource Include="Resources\methodDartExample.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CustomTypeBuilder" Version="1.2.0" />
+    <PackageReference Include="MedallionShell" Version="1.6.1" />
+    <PackageReference Include="Microsoft.Build" Version="16.8.0" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Build.Locator" Version="1.4.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
+    <PackageReference Include="SharpYaml" Version="1.6.6" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="Flutnet.ServiceModel" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.14" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.14" />
+  </ItemGroup>
+
+  <Import Project="..\Flutnet.Shared\Flutnet.Shared.projitems" Label="Shared" Condition="Exists('..\Flutnet.Shared\Flutnet.Shared.projitems')" />
+</Project>
