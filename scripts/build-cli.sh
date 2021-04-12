@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
+PROJECT_NAME=Flutnet.Cli
+
 # Define paths
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-SOLUTION_PATH=$SCRIPT_DIR/../Flutnet.Cli.sln
-PROJECT_PATH=$SCRIPT_DIR/../src/Flutnet.Cli/Flutnet.Cli.csproj
+SOLUTION_PATH=$SCRIPT_DIR/../$PROJECT_NAME.sln
+PROJECT_PATH=$SCRIPT_DIR/../src/$PROJECT_NAME/$PROJECT_NAME.csproj
 
-# Clean and build Flutnet CLI
-dotnet clean "$PROJECT_PATH" -c Debug -f netcoreapp3.1 --nologo 
-dotnet clean "$PROJECT_PATH" -c Release -f netcoreapp3.1 --nologo
+# Clean and build Flutnet Console
+dotnet clean "$PROJECT_PATH" -c Debug --nologo 
+dotnet clean "$PROJECT_PATH" -c Release --nologo
 
-dotnet build "$PROJECT_PATH" -c Debug -f netcoreapp3.1 --no-restore --nologo
-dotnet build "$PROJECT_PATH" -c Release -f netcoreapp3.1 --no-restore --nologo
+dotnet build "$PROJECT_PATH" -c Debug --no-restore --nologo
+dotnet build "$PROJECT_PATH" -c Release --no-restore --nologo

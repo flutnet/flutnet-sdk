@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+PROJECT_NAME=FlutnetUI
+
 # Define paths
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-SOLUTION_PATH=$SCRIPT_DIR/../FlutnetUI.sln
-PROJECT_PATH=$SCRIPT_DIR/../src/FlutnetUI/FlutnetUI.csproj
+SOLUTION_PATH=$SCRIPT_DIR/../$PROJECT_NAME.sln
+PROJECT_PATH=$SCRIPT_DIR/../src/$PROJECT_NAME/$PROJECT_NAME.csproj
 
 # Clean and build Flutnet Console
 dotnet clean "$PROJECT_PATH" -c Debug --nologo 
