@@ -1,26 +1,24 @@
 # [Flutnet](https://www.flutnet.com) SDK
 
-<div style="background-color:white; padding:0%; margin-bottom: 3%;">
-<img src="github_assets/how_flutnet_works_r2.png" width="35%" style="background-color:white; padding:1.2%;" />
-<img src="github_assets/flutter_embedding.png" width="17.5%" style="background-color:white; padding:0px;" />
-</div>
+This repository contains the ***Flutnet Console***, the official graphical tool that allow to easily generate Flutnet projects: this is possible thanks to `flutnet` command line tool, also present in this repository.
 
-## What is Flutnet?
-
-Flutnet is a set of tools and libraries that will make super easy embed [Flutter](https://flutter.dev/) (graphical framework) inside a [Xamarin](https://dotnet.microsoft.com/apps/xamarin) application (as a backend layer) to obtain a powerful and native cross platform application. For more detailts see https://www.flutnet.com/.
-
-## Repository overview
+This tool works combined with:
+- [Flutnet Xamarin Bindings](https://github.com/flutnet/flutnet_xamarin-libs) Libraries
+- [Flutnet Android and iOS](https://github.com/flutnet/flutnet_xamarin-libs) NugetPackages
 
 <div style="background-color:white; padding:0%; margin-bottom: 3%;">
 <img src="github_assets/flutnet_console_1.png" width="47%" style="background-color:white; " />
 <img src="github_assets/flutnet_console_2.png" width="47%" style="background-color:white; padding:0px;padding-left:1%;" />
 </div>
 
-This repository contains the ***Flutnet Console***, the official graphical tool that allow to easily generate Flutnet projects: this is possible thanks to `flutnet` command line tool, also present in this repository.
+## What is Flutnet?
 
-This tool works combined with:
-- [Flutnet Xamarin Bindings](https://github.com/flutnet/flutnet_xamarin-libs) Libraries
-- [Flutnet Android and iOS](https://github.com/flutnet/flutnet_xamarin-libs) NugetPackages
+Flutnet is a set of tools and libraries that will make super easy embed [Flutter](https://flutter.dev/) (graphical framework) inside a [Xamarin](https://dotnet.microsoft.com/apps/xamarin) application (as a backend layer) to obtain a powerful and native cross platform application. For more detailts see https://www.flutnet.com/.
+
+<div style="background-color:white; padding:0%; margin-bottom: 3%;">
+<img src="github_assets/how_flutnet_works_r2.png" width="35%" style="background-color:white; padding:1.2%;" />
+<img src="github_assets/flutter_embedding.png" width="17.5%" style="background-color:white; padding:0px;" />
+</div>
 
 ## Setup requirements
 
