@@ -163,18 +163,15 @@ namespace Flutnet.Cli.Core
             {
                 #region Operations
 
-                // Estraggo tutti i metodi PUBBLICI marcati come "FlutterOperation"
+                // Extract all the PUBLIC methods marked as "FlutterOperation"
                 List<MethodInfo> flutterOperations = service.GetPlatformOperations().ToList();
-                //.Where(m => m.IsPublic && m.GetCustomAttributes(typeof(flutnet.sdk.FlutterOperationAttribute), true).Length > 0).ToList();
 
                 serviceToMethods.Add(service, flutterOperations);
 
-                //
-                // TODO Verificare che i parametri delle operazioni NON siano dei FlutterService (stessa cosa per i parametri degli eventi)
-                //
+                // Check for each platform operation the return and params class types
                 foreach (MethodInfo methodInfo in flutterOperations)
                 {
-                    // Estraggo tutte le property della classe
+                    // Extract all the class properties
                     Type returnType = DartReturnType.GetNestedType(methodInfo.ReturnType);
                     if (returnType != typeof(void))
                     {
@@ -199,14 +196,14 @@ namespace Flutnet.Cli.Core
 
                 #region Events
 
-                // Estraggo gli event marcati come flutter event
+                // Exrract all the events marked as PlaftormEvent
                 List<EventInfo> flutterEvents = service.GetPlatformEvents().ToList();
 
                 serviceToEvents.Add(service, flutterEvents);
 
                 foreach (EventInfo e in flutterEvents)
                 {
-                    // Recupero l'event args associato
+                    // Get the associated EventArgs
                     Type args = e.GetPlatformEventArgs();
 
                     eventArgsTypes.Add(args);
@@ -310,12 +307,12 @@ namespace Flutnet.Cli.Core
                     errors.Add(new Exception($"Invalid Method {method.Name}, for {service.Name}: cannot mark NON PUBLIC methods with {nameof(PlatformOperationAttribute)}."));
                 }
 
-                // Verifico il supporto del metodo
+                // Check if the method is supported
                 foreach (MethodInfo method in methods)
                 {
 
-                    // Estraggo il valore dell'id relativo alla flutter operation: ogni servizio deve avere dei valori univoci per ogni operazione.
-                    string operationName = DartSupport.GetDartMethodName(method.Name);// SignatureTools.GetCSharpSignature(method);
+                    // Extract the method name: must be unique (Dart language NOT support Method Overloading)
+                    string operationName = DartSupport.GetDartMethodName(method.Name);
 
                     if (uniqueOperationNames.Contains(operationName))
                     {
@@ -325,8 +322,8 @@ namespace Flutnet.Cli.Core
                     uniqueOperationNames.Add(operationName);
 
 
-                    // Ogni metodo non puo avere attributi con lo stesso nome NON KEY SENSITIVE
-                    // esempio bool login( string Password, string password) ---> errore
+                    // Each method cannot have attributes with the same name, because Dart is NOT KEY SENSITIVE
+                    // Example: bool login( string Password, string password) ---> error!
                     bool duplicatedParamName = method.GetParameters().Select(p => p.Name.ToUpper()).Distinct().Count() <
                                                method.GetParameters().Length;
 
@@ -345,7 +342,7 @@ namespace Flutnet.Cli.Core
 
                     Type invalidReturnType = null;
 
-                    // Estraggo tutte le property della classe
+                    // Extract all the properties for the class
                     Type returnType = DartReturnType.GetNestedType(method.ReturnType);
                     if (returnType != typeof(void))
                     {
@@ -365,7 +362,6 @@ namespace Flutnet.Cli.Core
                         }
                     }
 
-                    // In caso di si qualche cosa di non supportato salvo l'errore
                     if (invalidReturnType != null || invalidParameters.Count > 0)
                     {
                         errors.Add(new FlutterOperationException(service, method, invalidParameters,invalidReturnType));
@@ -376,7 +372,7 @@ namespace Flutnet.Cli.Core
                 // Find all unsupported flutter operation
                 EventInfo[] invalidEvents = service.GetUnsupportedPlatformEvents();
 
-                // Verifico il supporto degli eventi
+                // Check if all events are supported
                 foreach (EventInfo @event in invalidEvents)
                 {
                     errors.Add(new Exception($"Invalid Event {@event.Name}, for {service.Name}. [PlatformEvent] must be implemented using EventHandler or EventHandler<T> pattern!"));
@@ -386,9 +382,9 @@ namespace Flutnet.Cli.Core
 
             }
 
+            // Some methods to export in Dart (FlutterOperation) are not supported
             if (errors.Any())
             {
-                // Alcuni metodi da esportare come FlutterOperation non sono supportati
                 throw new MultipleException(errors);
             }
 
@@ -398,8 +394,6 @@ namespace Flutnet.Cli.Core
 
 
             
-
-
             // ----------------------------------------
             // Convert all the C# Types in Dart types
             // ----------------------------------------
@@ -486,8 +480,7 @@ namespace Flutnet.Cli.Core
             // ----------------------------------------
             Console.WriteLine($"Start generating all the dart project files ...", verbose);
 
-
-            // NOTE: ogni dart type ha i member che sono le sue property
+            // Generate all the Dart PlatformData classes
             foreach (DartType dartType in dartDataTypes.Values)
             {
                 string filePath = DartSupport.GetDartFilePath(libPath, dartType);

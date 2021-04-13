@@ -13,7 +13,6 @@ namespace Flutnet.Cli.Core.Dart
             if (string.IsNullOrEmpty(cSharpName) || cSharpName.Contains(" "))
                 throw new Exception("Invalid sharp name!");
 
-            // Rimuovo il primo carattere
             string noCamelCase = _SplitCamelCase(cSharpName, "_");
 
             if (noCamelCase.StartsWith("_"))

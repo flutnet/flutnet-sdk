@@ -125,7 +125,7 @@ namespace Flutnet.Cli.Core.Utilities
 
         }
 
-        // TODO DA TESTARE
+        // TODO To TEST
         public static bool ImplementInterface(this MethodInfo method)
         {
             Type[] interfaces = method?.ReflectedType?.GetNestedInterface() ?? new Type[0];
@@ -141,7 +141,7 @@ namespace Flutnet.Cli.Core.Utilities
             return false;
         }
 
-        // TODO DA TESTARE
+        // TODO To TEST
         public static bool Implements(this MethodInfo method, Type iface)
         {
             return method.ReflectedType != null && method.ReflectedType.GetInterfaceMap(iface).TargetMethods.Contains(method);
