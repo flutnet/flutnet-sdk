@@ -7,7 +7,7 @@ SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 SOLUTION_PATH=$SCRIPT_DIR/../$PROJECT_NAME.sln
 PROJECT_PATH=$SCRIPT_DIR/../src/$PROJECT_NAME/$PROJECT_NAME.csproj
 
-# Clean and build Flutnet Console
+# Clean and build Flutnet CLI
 dotnet clean "$PROJECT_PATH" -c Debug --nologo 
 dotnet clean "$PROJECT_PATH" -c Release --nologo
 
