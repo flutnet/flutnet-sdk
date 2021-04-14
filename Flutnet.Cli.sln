@@ -5,21 +5,22 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{36E993B2-7D4C-4A04-836F-DAF3643F006E}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		assets\sdk.table.xml = assets\sdk.table.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flutnet.Cli.Core", "src\Flutnet.Cli.Core\Flutnet.Cli.Core.csproj", "{8553A806-AF84-4AD5-9761-FA74C59DBB12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flutnet.Cli.Core", "src\Flutnet.Cli.Core\Flutnet.Cli.Core.csproj", "{8553A806-AF84-4AD5-9761-FA74C59DBB12}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Flutnet.Shared", "src\Flutnet.Shared\Flutnet.Shared.shproj", "{E9955800-F9E3-4C64-BE6E-368B60DEDB1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flutnet.Cli.DTO", "src\Flutnet.Cli.DTO\Flutnet.Cli.DTO.csproj", "{20979569-7A91-49A7-AFF0-F7074975D794}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flutnet.Cli.DTO", "src\Flutnet.Cli.DTO\Flutnet.Cli.DTO.csproj", "{20979569-7A91-49A7-AFF0-F7074975D794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flutnet.Cli", "src\Flutnet.Cli\Flutnet.Cli.csproj", "{788A118D-C9D7-44BF-B02F-F6B0D1D52899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flutnet.Cli", "src\Flutnet.Cli\Flutnet.Cli.csproj", "{788A118D-C9D7-44BF-B02F-F6B0D1D52899}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\comps\Flutnet.Shared\Flutnet.Shared.projitems*{53aa5788-e65f-4a95-92da-01a609045f3d}*SharedItemsImports = 5
-		..\comps\Flutnet.Shared\Flutnet.Shared.projitems*{e9955800-f9e3-4c64-be6e-368b60dedb1f}*SharedItemsImports = 13
+		src\Flutnet.Shared\Flutnet.Shared.projitems*{8553a806-af84-4ad5-9761-fa74c59dbb12}*SharedItemsImports = 5
+		src\Flutnet.Shared\Flutnet.Shared.projitems*{e9955800-f9e3-4c64-be6e-368b60dedb1f}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
