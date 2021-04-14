@@ -13,7 +13,7 @@ This tool works combined with:
 
 ## What is Flutnet?
 
-Flutnet is a set of tools and libraries that will make super easy embed [Flutter](https://flutter.dev/) (graphical framework) inside a [Xamarin](https://dotnet.microsoft.com/apps/xamarin) application (as a backend layer) to obtain a powerful and native cross platform application. For more detailts see https://www.flutnet.com/.
+Flutnet is a set of tools and libraries that allows you to create rich and beautiful Xamarin apps using [Flutter](https://flutter.dev/) as UI Layer and .NET as backend. For more details please visit https://www.flutnet.com/.
 
 <div style="background-color:white; padding:0%; margin-bottom: 3%;">
 <img src="github_assets/how_flutnet_works_r2.png" width="35%" style="background-color:white; padding:1.2%;" />
@@ -83,3 +83,12 @@ If everithing have worked fine, you'll find all the compiled objects inside the 
 Depending on your System you need to double click:
 - `artifacts/win-x64/FlutnetUI/FlutnetUI.exe` for Windows
 - `artifacts/osx-x64/FlutnetUI/FlutnetUI` for macOS
+
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
