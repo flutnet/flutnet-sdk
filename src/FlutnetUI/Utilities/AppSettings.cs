@@ -31,7 +31,7 @@ namespace FlutnetUI.Utilities
     {
         public static readonly AppSettings Default = new AppSettings();
 
-        const string UserPreferencesFilename = "ui.prefs";
+        const string UserPreferencesFilename = "ui2.prefs";
 
 #if DEBUG
         public AppSettings()
@@ -65,6 +65,8 @@ namespace FlutnetUI.Utilities
             {
                 AppDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), company, product);
             }
+            if (!Directory.Exists(AppDataFolder))
+                Directory.CreateDirectory(AppDataFolder);
             Preferences = new UserPreferences(Path.Combine(AppDataFolder, UserPreferencesFilename));
         }
 #endif
@@ -78,6 +80,8 @@ namespace FlutnetUI.Utilities
             if (!string.IsNullOrEmpty(path))
             {
                 AppDataFolder = path;
+                if (!Directory.Exists(AppDataFolder))
+                    Directory.CreateDirectory(AppDataFolder);
                 Preferences = new UserPreferences(Path.Combine(AppDataFolder, UserPreferencesFilename));
             }
         }
@@ -104,11 +108,8 @@ namespace FlutnetUI.Utilities
 
         }
 
-        [Obfuscation(Exclude = true)]
         public bool CheckForUpdatesAtStartup { get; set; } = true;
-        [Obfuscation(Exclude = true)]
         public string LastProjectLocation { get; set; }
-        [Obfuscation(Exclude = true)]
         public bool ShowSetupWizardAtStartup { get; set; } = true;
 
         public void Reload()

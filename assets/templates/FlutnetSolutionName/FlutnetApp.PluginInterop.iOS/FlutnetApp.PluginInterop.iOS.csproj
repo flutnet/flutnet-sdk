@@ -11,6 +11,9 @@
     <AssemblyName>FlutnetApp.PluginInterop</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <!-- Flutter 2 switched to XCFrameworks, however Xamarin has limited support for them -->
+    <!-- Please follow this discussion on how to handle this new format: https://github.com/xamarin/xamarin-macios/issues/10774 -->
+    <NoBindingEmbedding>true</NoBindingEmbedding>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

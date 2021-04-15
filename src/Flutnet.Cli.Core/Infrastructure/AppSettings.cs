@@ -16,7 +16,6 @@
 // along with Flutnet.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Flutnet.Cli.Core.Utilities;
@@ -32,7 +31,7 @@ namespace Flutnet.Cli.Core.Infrastructure
     {
         public static readonly AppSettings Default = new AppSettings();
         
-        const string AppUsageDataFilename = "cli.prefs";
+        const string AppUsageDataFilename = "cli2.prefs";
         const string SdkTableFilename = "sdk.table.xml";
 
         public const string DefaultBinPath_Windows = @"C:\Program Files\Novagem Solutions\Flutnet\bin";
@@ -80,6 +79,8 @@ namespace Flutnet.Cli.Core.Infrastructure
                 TemplatesFolder = Path.GetFullPath(Path.Combine(AppPath, "..", "resources", "templates"));
                 SdkTableDefaultPath = Path.GetFullPath(Path.Combine(AppPath, "..", "resources", SdkTableFilename));
             }
+            if (!Directory.Exists(AppDataFolder))
+                Directory.CreateDirectory(AppDataFolder);
             UsageData = new AppUsageData(Path.Combine(AppDataFolder, AppUsageDataFilename));
             SdkTableCurrentPath = Path.Combine(AppDataFolder, SdkTableFilename);
         }
@@ -97,6 +98,8 @@ namespace Flutnet.Cli.Core.Infrastructure
             if (!string.IsNullOrEmpty(path))
             {
                 AppDataFolder = path;
+                if (!Directory.Exists(AppDataFolder))
+                    Directory.CreateDirectory(AppDataFolder);
                 UsageData = new AppUsageData(Path.Combine(AppDataFolder, AppUsageDataFilename));
             }
             path = configuration.GetValue("TemplatesFolder", string.Empty);
@@ -160,16 +163,10 @@ namespace Flutnet.Cli.Core.Infrastructure
 
         }
 
-        [Obfuscation(Exclude = true)]
         public DateTime? LastCheckedForUpdates { get; set; }
-        [Obfuscation(Exclude = true)]
         public bool UpToDate { get; set; } = true;
-        [Obfuscation(Exclude = true)]
         public string NewVersion { get; set; }
-        [Obfuscation(Exclude = true)]
         public string DownloadUrl { get; set; }
-        [Obfuscation(Exclude = true)]
-        public Dictionary<string, string> AppKeys { get; set; } = new Dictionary<string, string>();
 
         public void Reload()
         {
@@ -188,7 +185,6 @@ namespace Flutnet.Cli.Core.Infrastructure
             UpToDate = data.UpToDate;
             NewVersion = data.NewVersion;
             DownloadUrl = data.DownloadUrl;
-            AppKeys = data.AppKeys;
         }
 
         public void Save()
