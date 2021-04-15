@@ -382,6 +382,19 @@ namespace Flutnet.Cli.Core
                 releaseItems[0].SetMetadataValue("Kind", "Framework");
                 releaseItems[0].SetMetadataValue("SmartLink", "False");
 
+                if (addFlutterEngineNativeRef)
+                {
+                    debugItems = prj.AddItem("NativeReference", appFrameworkDebugPathRelative.Replace(FlutterModuleAppFramework, FlutterEngineFramework));
+                    debugItems[0].Xml.Parent.Condition = MSBuildDebugCondition;
+                    debugItems[0].SetMetadataValue("Kind", "Framework");
+                    debugItems[0].SetMetadataValue("SmartLink", "False");
+
+                    releaseItems = prj.AddItem("NativeReference", appFrameworkReleasePathRelative.Replace(FlutterModuleAppFramework, FlutterEngineFramework));
+                    releaseItems[0].Xml.Parent.Condition = MSBuildReleaseCondition;
+                    releaseItems[0].SetMetadataValue("Kind", "Framework");
+                    releaseItems[0].SetMetadataValue("SmartLink", "False");
+                }
+
                 prj.Save();
             }
         }
