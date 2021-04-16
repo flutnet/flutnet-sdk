@@ -1,10 +1,12 @@
-# [Flutnet](https://www.flutnet.com) SDK
+# Flutnet SDK
 
-This repository contains the ***Flutnet Console***, the official graphical tool that allow to easily generate Flutnet projects: this is possible thanks to `flutnet` command line tool, also present in this repository.
+[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
-This tool works combined with:
-- [Flutnet Xamarin Bindings](https://github.com/flutnet/flutnet_xamarin-libs) Libraries
-- [Flutnet Android and iOS](https://github.com/flutnet/flutnet_xamarin-libs) NugetPackages
+This repository holds the **Flutnet Console** - the official graphical tool that allows you to  generate Flutnet projects - and the underlying **Flutnet CLI** - the command-line interface that hosts all the main logic both for project creation and Dart code generation.
+
+These tools depend on:
+- [Flutnet Xamarin Bindings](https://github.com/flutnet/flutnet_xamarin-libs)
+- [Flutnet Runtime Libraries](https://github.com/flutnet/flutnet_xamarin-libs)
 
 <div style="background-color:white; padding:0%; margin-bottom: 3%;">
 <img src="github_assets/flutnet_console_1.png" width="47%" style="background-color:white; " />
@@ -91,4 +93,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+This project is licensed under the LPGL v3 license (https://www.gnu.org/licenses/lgpl-3.0.html)
