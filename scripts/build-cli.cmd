@@ -8,6 +8,9 @@ set ScriptDir=%~dp0
 set SolutionPath=%ScriptDir%\..\%ProjectName%.sln
 set ProjectPath=%ScriptDir%\..\src\%ProjectName%\%ProjectName%.csproj
 
+:: Restore Nuget Packages for Flutnet CLI projects
+dotnet restore "%SolutionPath%"
+
 :: Clean and build Flutnet CLI
 dotnet clean "%ProjectPath%" -c Debug --nologo 
 dotnet clean "%ProjectPath%" -c Release --nologo

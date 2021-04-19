@@ -13,6 +13,13 @@ These tools depend on:
 <img src="github_assets/flutnet_console_2.png" width="47%" style="background-color:white; padding:0px;padding-left:1%;" />
 </div>
 
+  - [What is Flutnet?](#what-is-flutnet)
+  - [System requirements](#system-requirements)
+  - [Building procedure](#building-procedure)
+  - [Sample app](#sample-app)
+  - [Contributing](#contributing)
+  - [License](#license)
+
 ## What is Flutnet?
 
 Flutnet is a set of tools and libraries that allows you to create rich and beautiful Xamarin apps using [Flutter](https://flutter.dev/) as UI Layer and .NET as backend. For more details please visit https://www.flutnet.com/.
@@ -22,65 +29,53 @@ Flutnet is a set of tools and libraries that allows you to create rich and beaut
 <img src="github_assets/flutter_embedding.png" width="17.5%" style="background-color:white; padding:0px;" />
 </div>
 
-## Setup requirements
+## System requirements
 
-The ***Flutnet Console*** is a `.NET Core 3.1` project, that use [Avalonia](https://avaloniaui.net/) as a Cross-Platform XAML framework for NET. 
+Both **Flutnet Console** and **Flutnet CLI** target .NET Core 3.1, so `.NET Core 3.1 SDK` is the only real requirement for building these projects. 
 
-If you like to apply some UI change on the Console we advice to install the [Avalonia IDE extension](https://avaloniaui.net/docs/quickstart/ide-support): this extension allow a design-time UI preview on the IDE, but **_it's NOT REQUIRED for building the project_**.
+However, **Flutnet Console** is a [Avalonia](https://avaloniaui.net/) MVVM Application: if you need full IDE support for code inspection and XAML design/preview, you have to use JetBrains Rider IDE or install [Avalonia for Visual Studio extension](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaforVisualStudio).
 
->See [.NET Tutorial - Hello World in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)
+## Building procedure
 
-## Build the project (Windows and macOS) :hammer:
+To build the source porjects, just run the following scripts:
 
-In this section will provide a detailed procedure ini order to build the project. We'll refer to all the bash scripts `*.sh` commands. 
-> Windows user need to replace all the commands using the corrisponding `*.cmd`
-
-### Restore all NuGet Packages
-
-This command allow to  restore all the required nuget packages for the projects.
-
-```sh
-scripts/restore-nuget-packages.sh
-```
-
-### Build and publish the client (`flutnet` command line tool)
-
-The first thing is to build the `Flutnet.Cli` project containing the `flutnet` command line tool.
-
-To build run
+**macOS**
 ```sh
 scripts/build-cli.sh
-```
-
-and to publish run
-
-```sh
-scripts/publish-cli.sh
-```
-
-
-### Build and publish the Flutnet Console (`FlutnetUI` project)
-
-
-To build run
-```sh
 scripts/build-ui.sh
 ```
 
-and to publish run
-
+**Windows**
 ```sh
+scripts/build-cli.cmd
+scripts/build-ui.cmd
+```
+
+These will build all the projects within the `FlutnetUI.sln` (Flutnet Console) and `Flutnet.Cli.sln` solutions, restoring all the required NuGet packages.
+
+Once the scripts have completed, you can open both solutions in your IDE and start debugging.
+
+## Notes on publishing
+
+This repository contains a couple of convenient scripts for publishing the source projects.
+
+**macOS**
+```sh
+scripts/publish-cli.sh
 scripts/publish-ui.sh
 ```
 
-If everithing have worked fine, you'll find all the compiled objects inside the `artifacts/` forder, for both `osx-x64` and `win-x64`:
-- Flutnet.Cli
-- FlutnetUI
+**Windows**
+```sh
+scripts/publish-cli.cmd
+scripts/publish-ui.cmd
+```
+
+These scripts just prepare the applications for release on both macOS and Windows. The resulting set of files is published to `artifacts/` directory.
 
 <img src="github_assets/build_artifacts.png" width="60%" style="background-color:white; " />
 
-
-### Run the Flutnet Console
+!### Run the Flutnet Console
 
 Depending on your System you need to double click:
 - `artifacts/win-x64/FlutnetUI/FlutnetUI.exe` for Windows
