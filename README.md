@@ -16,7 +16,7 @@ These tools depend on:
   - [What is Flutnet?](#what-is-flutnet)
   - [System requirements](#system-requirements)
   - [Building procedure](#building-procedure)
-  - [Sample app](#sample-app)
+  - [Notes on publishing](#notes-on-publishing)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -57,7 +57,7 @@ Once the scripts have completed, you can open both solutions in your IDE and sta
 
 ## Notes on publishing
 
-This repository contains a couple of convenient scripts for publishing the source projects.
+This repository contains a couple of convenient scripts for publishing the source projects:
 
 **macOS**
 ```sh
@@ -75,12 +75,7 @@ These scripts just prepare the applications for release on both macOS and Window
 
 <img src="github_assets/build_artifacts.png" width="60%" style="background-color:white; " />
 
-!### Run the Flutnet Console
-
-Depending on your System you need to double click:
-- `artifacts/win-x64/FlutnetUI/FlutnetUI.exe` for Windows
-- `artifacts/osx-x64/FlutnetUI/FlutnetUI` for macOS
-
+**HOWEVER**, you must be aware that the published executables are NOT ready to run _as-is_ because they look for dependency files and folders (such as templates for project creation) in a way that strictly depends on the installation procedure defined within the official Flutnet SDK.  
 
 ## Contributing
 
